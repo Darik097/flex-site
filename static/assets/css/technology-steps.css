@@ -1,0 +1,197 @@
+.technology-steps {
+    position: relative;
+    background: #25211b;
+    padding: 0 0 68px;
+}
+
+.technology-steps__track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 760px;
+}
+
+.technology-step-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.technology-step-card__button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 760px;
+    padding: 0;
+    border: 0;
+    background: #111;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.technology-step-card__button img,
+.technology-step-card__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.technology-step-card__button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(0.2, 0.8, 0.2, 1), filter .35s ease;
+    filter: brightness(0.58) saturate(0.84);
+}
+
+.technology-step-card__overlay {
+    background:
+        linear-gradient(180deg, rgba(8,8,8,0.18), rgba(8,8,8,0.52)),
+        linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.22));
+    transition: opacity .35s ease, background .35s ease;
+}
+
+.technology-step-card__button:hover img,
+.technology-step-card__button:focus-visible img {
+    transform: scale(1.04);
+    filter: brightness(0.82) saturate(0.94);
+}
+
+.technology-step-card__button:hover .technology-step-card__overlay,
+.technology-step-card__button:focus-visible .technology-step-card__overlay {
+    background:
+        linear-gradient(180deg, rgba(8,8,8,0.04), rgba(8,8,8,0.28)),
+        linear-gradient(90deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
+}
+
+.technology-step-card__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 28px 16px 22px;
+}
+
+.technology-step-card__index {
+    font-size: clamp(52px, 4.6vw, 74px);
+    line-height: 0.9;
+    font-weight: 300;
+    letter-spacing: -0.07em;
+    color: #dcc09c;
+}
+
+.technology-step-card h3 {
+    margin-top: 10px;
+    font-size: clamp(22px, 2vw, 34px);
+    line-height: 1.02;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.96);
+}
+
+.technology-step-card__side {
+    align-self: flex-start;
+    margin-top: auto;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+}
+
+.technology-steps-lightbox[hidden] {
+    display: none;
+}
+
+.technology-steps-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+}
+
+.technology-steps-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+}
+
+.technology-steps-lightbox__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(1440px, calc(100% - 24px));
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+.technology-steps-lightbox__dialog img {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 32px);
+    object-fit: contain;
+}
+
+.technology-steps-lightbox__close {
+    position: absolute;
+    top: 18px;
+    right: 4px;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background: transparent;
+    color: rgba(255,255,255,0.92);
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+body.is-tech-lightbox-open {
+    overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+    .technology-steps__track {
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 0;
+    }
+
+    .technology-step-card__button {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 640px) {
+    .technology-steps {
+        padding-bottom: 44px;
+    }
+
+    .technology-steps__track {
+        grid-template-columns: 1fr;
+    }
+
+    .technology-step-card__button {
+        min-height: 420px;
+    }
+
+    .technology-step-card__content {
+        padding: 20px 14px 16px;
+    }
+
+    .technology-step-card__index {
+        font-size: 46px;
+    }
+
+    .technology-step-card h3 {
+        font-size: 24px;
+    }
+
+    .technology-step-card__side {
+        font-size: 12px;
+    }
+}

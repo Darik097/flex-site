@@ -1,0 +1,601 @@
+.craft-team {
+    position: relative;
+    background: #25211b;
+    padding: 136px 0 110px;
+    overflow: hidden;
+}
+
+.craft-team::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 48% 18%, rgba(255,255,255,0.05), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    pointer-events: none;
+}
+
+.craft-team__inner {
+    position: relative;
+    z-index: 1;
+    width: min(1240px, calc(100% - 64px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(320px, 410px) minmax(520px, 1fr);
+    align-items: center;
+    gap: 72px;
+    transform: translate3d(0, calc(var(--section-progress, 0) * -14px), 0);
+}
+
+.craft-team__copy {
+    max-width: 400px;
+}
+
+.craft-team__copy h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 4.6vw, 52px);
+    line-height: 1.02;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: rgba(255,255,255,0.96);
+}
+
+.craft-team__copy h2 span {
+    display: block;
+    color: #dcc09c;
+}
+
+.craft-team__copy p {
+    margin-top: 26px;
+    max-width: 390px;
+    font-size: 16px;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.78);
+}
+
+.craft-team__btn {
+    margin-top: 38px;
+    min-width: 288px;
+}
+
+.craft-team__visual {
+    position: relative;
+    min-height: 620px;
+}
+
+.craft-team__ring {
+    position: absolute;
+    top: 60px;
+    left: 42px;
+    width: clamp(162px, 18vw, 190px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.88);
+    border-radius: 50%;
+}
+
+.craft-team__photo {
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+    background: #1d1a16;
+}
+
+.craft-team__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.craft-team__photo--left {
+    left: 118px;
+    bottom: 90px;
+    width: min(45vw, 432px);
+    aspect-ratio: 1 / 0.98;
+    z-index: 2;
+    transform: translate3d(calc(var(--section-progress, 0) * -12px), calc(var(--section-progress, 0) * 14px), 0);
+}
+
+.craft-team__photo--right {
+    right: 0;
+    top: 86px;
+    width: min(45vw, 418px);
+    aspect-ratio: 1 / 1.22;
+    z-index: 1;
+    transform: translate3d(calc(var(--section-progress, 0) * 16px), calc(var(--section-progress, 0) * -18px), 0);
+}
+
+.craft-team.is-gsap-ready .craft-team__copy,
+.craft-team.is-gsap-ready .craft-team__ring,
+.craft-team.is-gsap-ready .craft-team__photo,
+.contact-atelier.is-gsap-ready .contact-atelier__texture,
+.contact-atelier.is-gsap-ready .contact-atelier__shade,
+.contact-atelier.is-gsap-ready .contact-atelier__panel,
+.contact-atelier.is-gsap-ready .contact-atelier__accent,
+.contact-atelier.is-gsap-ready .contact-atelier__field,
+.contact-atelier.is-gsap-ready .contact-atelier__divider,
+.contact-atelier.is-gsap-ready .contact-atelier__btn {
+    will-change: transform, opacity;
+}
+
+.contact-atelier {
+    position: relative;
+    background: #1d1a16;
+    overflow: hidden;
+}
+
+.contact-atelier__texture,
+.contact-atelier__shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.contact-atelier__texture {
+    background:
+        linear-gradient(90deg, rgba(10,9,8,0.54) 0%, rgba(10,9,8,0.38) 32%, rgba(10,9,8,0.76) 46%, rgba(10,9,8,0.9) 100%),
+        url('../../images/stone_warm.png') center center / cover no-repeat;
+    opacity: 0.9;
+}
+
+.contact-atelier__shade {
+    background:
+        radial-gradient(circle at 92% 84%, rgba(255,255,255,0.03), transparent 10%),
+        linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.56));
+}
+
+.contact-atelier__inner {
+    position: relative;
+    z-index: 1;
+    width: min(1240px, calc(100% - 64px));
+    margin: 0 auto;
+    min-height: 760px;
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(410px, 500px);
+    align-items: center;
+    gap: 20px;
+    padding: 94px 0 88px;
+    transform: translate3d(0, calc(var(--section-progress, 0) * -16px), 0);
+}
+
+.contact-atelier__panel {
+    grid-column: 2;
+    justify-self: start;
+    width: min(100%, 480px);
+    padding: 0;
+}
+
+.contact-atelier__eyebrow {
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+}
+
+.contact-atelier__panel h2 {
+    font-family: 'Playfair Display', serif;
+    max-width: 440px;
+    font-size: clamp(34px, 3.5vw, 48px);
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: rgba(255,255,255,0.96);
+}
+
+.contact-atelier__details {
+    margin-top: 26px;
+}
+
+.contact-atelier__phone {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(23px, 2.2vw, 33px);
+    line-height: 1.05;
+    color: #dcc09c;
+    text-decoration: none;
+}
+
+.contact-atelier__address {
+    max-width: 410px;
+    font-size: 15px;
+    line-height: 1.64;
+    color: rgba(255,255,255,0.76);
+}
+
+.contact-atelier__divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0 24px;
+}
+
+.contact-atelier__divider span {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.16);
+}
+
+.contact-atelier__divider p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.94);
+    text-transform: uppercase;
+}
+
+.contact-atelier__form {
+    display: grid;
+    gap: 22px;
+    max-width: 410px;
+}
+
+.contact-atelier__field {
+    display: grid;
+    gap: 10px;
+}
+
+.contact-atelier__field span {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.56);
+}
+
+.contact-atelier__field input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.26);
+    background: transparent;
+    padding: 0 0 10px;
+    color: #fff;
+    font-size: 17px;
+    font-family: 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    outline: none;
+}
+
+.contact-atelier__field input::placeholder {
+    color: rgba(255,255,255,0.34);
+}
+
+.contact-atelier__check {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.contact-atelier__check input {
+    margin-top: 2px;
+}
+
+.contact-atelier__check span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.54);
+}
+
+.contact-atelier__status {
+    min-height: 18px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #dcc09c;
+}
+
+.contact-atelier__status.is-error {
+    color: #efb8b8;
+}
+
+.contact-atelier__btn {
+    margin-top: 8px;
+    min-width: 228px;
+}
+
+.contact-atelier__accent {
+    position: absolute;
+    right: -12px;
+    bottom: -10px;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    opacity: 0.54;
+}
+
+.contact-atelier__ring {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 112px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.64);
+}
+
+.site-footer {
+    position: relative;
+    background: #f5f3ef;
+    color: #171613;
+    padding: 64px 0 42px;
+}
+
+.site-footer__inner {
+    width: min(1240px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+.site-footer__brand {
+    max-width: 860px;
+    margin-bottom: 48px;
+}
+
+.site-footer__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(23,22,19,0.68);
+}
+
+.site-footer__label::before {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: rgba(23,22,19,0.6);
+}
+
+.site-footer__brand h2 {
+    font-size: clamp(38px, 4vw, 56px);
+    line-height: 1.02;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    color: #171613;
+}
+
+.site-footer__lead {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(23,22,19,0.68);
+}
+
+.site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(23,22,19,0.12);
+}
+
+.site-footer__col {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+}
+
+.site-footer__title {
+    margin-bottom: 6px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(23,22,19,0.46);
+}
+
+.site-footer__col a,
+.site-footer__col p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(23,22,19,0.82);
+    text-decoration: none;
+}
+
+.site-footer__col a:hover {
+    color: #171613;
+}
+
+.site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(23,22,19,0.1);
+}
+
+.site-footer__bottom p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(23,22,19,0.54);
+}
+
+@media (max-width: 1200px) {
+    .craft-team__inner,
+    .contact-atelier__inner {
+        width: min(100% - 48px, 1120px);
+    }
+
+    .craft-team__inner {
+        grid-template-columns: minmax(300px, 390px) minmax(440px, 1fr);
+        gap: 42px;
+    }
+
+    .craft-team__visual {
+        min-height: 560px;
+    }
+
+    .craft-team__photo--left {
+        left: 82px;
+        width: min(40vw, 382px);
+    }
+
+    .craft-team__photo--right {
+        width: min(40vw, 372px);
+    }
+}
+
+@media (max-width: 980px) {
+    .craft-team {
+        padding: 104px 0 84px;
+    }
+
+    .craft-team__inner,
+    .contact-atelier__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .craft-team__copy {
+        max-width: 100%;
+    }
+
+    .craft-team__visual {
+        min-height: 640px;
+        width: min(100%, 720px);
+        margin: 0 auto;
+    }
+
+    .craft-team__ring {
+        top: 26px;
+        left: 18px;
+    }
+
+    .craft-team__photo--left {
+        left: 54px;
+        bottom: 86px;
+        width: min(60vw, 390px);
+    }
+
+    .craft-team__photo--right {
+        right: 12px;
+        top: 46px;
+        width: min(58vw, 360px);
+    }
+
+    .contact-atelier__inner {
+        min-height: auto;
+        padding: 76px 0 70px;
+    }
+
+    .contact-atelier__panel {
+        grid-column: auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .contact-atelier__accent {
+        right: -14px;
+        bottom: -16px;
+    }
+
+    .site-footer__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-footer__bottom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .craft-team {
+        padding: 84px 0 68px;
+    }
+
+    .craft-team__inner,
+    .contact-atelier__inner {
+        width: calc(100% - 28px);
+        gap: 28px;
+    }
+
+    .craft-team__copy h2,
+    .contact-atelier__panel h2 {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+
+    .craft-team__copy p,
+    .contact-atelier__address {
+        font-size: 16px;
+        line-height: 1.58;
+    }
+
+    .craft-team__btn,
+    .contact-atelier__btn {
+        min-width: 0;
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .craft-team__visual {
+        min-height: 420px;
+    }
+
+    .craft-team__ring {
+        width: 128px;
+        top: 8px;
+        left: 0;
+    }
+
+    .craft-team__photo--left {
+        left: 10px;
+        bottom: 54px;
+        width: min(72vw, 290px);
+    }
+
+    .craft-team__photo--right {
+        right: 0;
+        top: 34px;
+        width: min(70vw, 270px);
+    }
+
+    .contact-atelier__inner {
+        padding: 62px 0 62px;
+    }
+
+    .contact-atelier__texture {
+        background:
+            linear-gradient(180deg, rgba(10,9,8,0.68) 0%, rgba(10,9,8,0.86) 100%),
+            url('../../images/stone_warm.png') center center / cover no-repeat;
+    }
+
+    .contact-atelier__phone {
+        font-size: 28px;
+    }
+
+    .contact-atelier__field input {
+        font-size: 17px;
+    }
+
+    .contact-atelier__accent {
+        width: 110px;
+        height: 110px;
+        right: -10px;
+        bottom: -12px;
+    }
+
+    .contact-atelier__ring {
+        width: 82px;
+    }
+
+    .site-footer {
+        padding: 52px 0 32px;
+    }
+
+    .site-footer__inner {
+        width: calc(100% - 28px);
+    }
+
+    .site-footer__brand h2 {
+        font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .site-footer__lead {
+        font-size: 16px;
+    }
+
+    .site-footer__grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+}

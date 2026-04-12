@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Технология Каменного Ковра | Этапы Укладки | FLEX</title>
+<meta name="description" content="Технология укладки каменного ковра от FLEX: подготовка основания, праймер, укладка смеси и финишная обработка для объектов в Уфе и Башкортостане.">
+<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="FLEX">
+<meta property="og:title" content="Технология Каменного Ковра | FLEX">
+<meta property="og:description" content="Этапы укладки каменного ковра: от подготовки основания до финишной обработки.">
+<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}">
+<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_technology.png') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon 2/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicon 2/site.webmanifest') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/technology-feature.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/technology-steps.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/technology-contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/request-modal.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Технология каменного ковра",
+      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}",
+      "description": "Технология устройства каменного ковра и этапы выполнения работ."
+    },
+    {
+      "@type": "HowTo",
+      "name": "Как выполняется укладка каменного ковра",
+      "step": [
+        { "@type": "HowToStep", "name": "Подготовка основания" },
+        { "@type": "HowToStep", "name": "Нанесение праймера" },
+        { "@type": "HowToStep", "name": "Укладка каменного ковра" },
+        { "@type": "HowToStep", "name": "Финишная обработка" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Технология",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+  <body class="about-page">
+
+    <header class="header">
+      <div class="nav-shell">
+        <div class="mist mist-top"></div>
+        <div class="mist mist-top-secondary"></div>
+
+        <div class="nav">
+          <a href="/" class="logo" aria-label="Flex">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Flex" width="94" height="32">
+          </a>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="menu" id="site-menu">
+            <a href="/">ГЛАВНАЯ</a>
+            <a href="/catalog">ПРОЕКТЫ</a>
+            <a href="/about">О НАС</a>
+            <a href="/contact">КОНТАКТЫ</a>
+            <a href="/technology" class="is-active">ТЕХНОЛОГИЯ</a>
+            <a href="tel:+79033533449" class="menu-phone">+7(903)-353-34-49</a>
+          </nav>
+
+          <div class="phone">+7(903)-353-34-49</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="about-hero">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_technology.png') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      </video>
+
+      <div class="about-hero__overlay"></div>
+      <div class="about-hero__mist"></div>
+
+      <span class="about-hero__orb about-hero__orb--left" aria-hidden="true"></span>
+      <span class="about-hero__orb about-hero__orb--right" aria-hidden="true"></span>
+
+      <div class="about-hero__content">
+        <div class="about-hero__headline">
+          <h1 class="about-hero__title">ТЕХНОЛОГИЯ КАМЕННОГО КОВРА</h1>
+          <div class="about-hero__underline" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="technology-feature" id="technology-feature">
+      <div class="technology-feature__inner">
+        <div class="technology-feature__copy reveal-technology">
+          <h2>
+            ИНЖЕНЕРИЯ ИДЕАЛЬНОЙ
+            <span>ПОВЕРХНОСТИ</span>
+          </h2>
+
+          <p>
+            Технология укладки каменного ковра включает тщательную подготовку основания,
+            нанесение адгезионного праймера и равномерное распределение каменной смеси,
+            связанной прочным полимерным клеем. Состав укладывается сплошным слоем,
+            формируя монолитное, водопроницаемое и износостойкое покрытие без швов.
+            После отверждения поверхность приобретает высокую прочность, устойчивость
+            к влаге, перепадам температур и механическим нагрузкам, сохраняя при этом
+            декоративный внешний вид и противоскользящие свойства.
+          </p>
+
+          <a class="btn technology-feature__btn" href="#" data-request-open data-request-title="Технология укладки каменного ковра" data-request-source="Страница Технология">ЗАКАЗАТЬ ПРОЕКТ</a>
+        </div>
+
+        <div class="technology-feature__visual reveal-technology">
+          <span class="technology-feature__ring" aria-hidden="true"></span>
+
+          <figure class="technology-feature__photo technology-feature__photo--left">
+            <img src="{{ url_for('static', filename='images/stone_project1.png') }}" alt="Фактура каменного ковра на стене" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="technology-feature__photo technology-feature__photo--right">
+            <img src="{{ url_for('static', filename='images/stone_technology.png') }}" alt="Поверхность каменного ковра в архитектурном интерьере" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="technology-steps" id="technology-steps">
+      <div class="technology-steps__track">
+        <article class="technology-step-card" data-step-card>
+          <button class="technology-step-card__button" type="button">
+            <img src="{{ url_for('static', filename='images/steps1.PNG') }}" alt="Подготовка основания" loading="lazy" decoding="async">
+            <div class="technology-step-card__overlay"></div>
+            <div class="technology-step-card__content">
+              <p class="technology-step-card__index">01</p>
+              <h3>ПОДГОТОВКА<br>ОСНОВАНИЯ</h3>
+              <span class="technology-step-card__side">НАДЁЖНАЯ БАЗА ПОКРЫТИЯ</span>
+            </div>
+          </button>
+        </article>
+
+        <article class="technology-step-card" data-step-card>
+          <button class="technology-step-card__button" type="button">
+            <img src="{{ url_for('static', filename='images/steps2.PNG') }}" alt="Нанесение праймера" loading="lazy" decoding="async">
+            <div class="technology-step-card__overlay"></div>
+            <div class="technology-step-card__content">
+              <p class="technology-step-card__index">02</p>
+              <h3>НАНЕСЕНИЕ<br>ПРАЙМЕРА</h3>
+              <span class="technology-step-card__side">АДГЕЗИОННЫЙ СЛОЙ</span>
+            </div>
+          </button>
+        </article>
+
+        <article class="technology-step-card" data-step-card>
+          <button class="technology-step-card__button" type="button">
+            <img src="{{ url_for('static', filename='images/steps3.PNG') }}" alt="Укладка каменного ковра" loading="lazy" decoding="async">
+            <div class="technology-step-card__overlay"></div>
+            <div class="technology-step-card__content">
+              <p class="technology-step-card__index">03</p>
+              <h3>УКЛАДКА<br>КАМЕННОГО КОВРА</h3>
+              <span class="technology-step-card__side">ФОРМИРОВАНИЕ МОНОЛИТНОЙ ПОВЕРХНОСТИ</span>
+            </div>
+          </button>
+        </article>
+
+        <article class="technology-step-card" data-step-card>
+          <button class="technology-step-card__button" type="button">
+            <img src="{{ url_for('static', filename='images/steps4.PNG') }}" alt="Финишная обработка" loading="lazy" decoding="async">
+            <div class="technology-step-card__overlay"></div>
+            <div class="technology-step-card__content">
+              <p class="technology-step-card__index">04</p>
+              <h3>ФИНИШНАЯ<br>ОБРАБОТКА</h3>
+              <span class="technology-step-card__side">ЗАЩИТНЫЙ ДЕКОРАТИВНЫЙ СЛОЙ</span>
+            </div>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <div class="technology-steps-lightbox" data-tech-lightbox hidden>
+      <button class="technology-steps-lightbox__backdrop" type="button" data-tech-lightbox-close aria-label="Закрыть просмотр"></button>
+      <div class="technology-steps-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Этап технологии">
+        <button class="technology-steps-lightbox__close" type="button" data-tech-lightbox-close aria-label="Закрыть просмотр">×</button>
+        <img src="" alt="" data-tech-lightbox-image>
+      </div>
+    </div>
+
+    <section class="technology-contact" id="technology-contact">
+      <div class="technology-contact__inner">
+        <div class="technology-contact__grid">
+          <article class="technology-contact__card">
+            <p class="technology-contact__label">Адрес</p>
+            <p class="technology-contact__text">
+              Российская Федерация, Республика<br>
+              Башкортостан, 450512, Уфимский<br>
+              район, с. Дмитриевка, переулок<br>
+              Рабочий, д. 29
+            </p>
+          </article>
+
+          <article class="technology-contact__card">
+            <p class="technology-contact__label">Телефоны</p>
+            <div class="technology-contact__phones">
+              <a href="tel:+79033533449">+7(903)-353-34-49</a>
+              <a href="tel:+79625251645">+7(962)-525-16-45</a>
+            </div>
+          </article>
+
+          <article class="technology-contact__card">
+            <p class="technology-contact__label">Почта</p>
+            <a class="technology-contact__mail" href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </article>
+        </div>
+
+        <div class="technology-contact__divider" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__label">Flex</p>
+          <h2>УЗНАЙТЕ БОЛЬШЕ О НАШЕЙ КОМПАНИИ</h2>
+          <p class="site-footer__lead">
+            Добро пожаловать в мир инноваций и технологий вместе с командой FLEX.
+          </p>
+        </div>
+
+        <div class="site-footer__grid">
+          <div class="site-footer__col">
+            <p class="site-footer__title">Контакты</p>
+            <a href="tel:+79033533449">+7(903)-353-34-49</a>
+            <p>Республика Башкортостан, Уфимский район,<br>с. Дмитриевка, пер. Рабочий, д. 29</p>
+            <a href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Навигация</p>
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <a href="/catalog">Проекты</a>
+            <a href="/contact">Контакты</a>
+            <a href="/technology">Технология</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Документы</p>
+            <a href="/privacy-policy">Политика обработки персональных данных</a>
+            <a href="/consent">Согласие на обработку персональных данных</a>
+            <a href="/terms">Пользовательское соглашение</a>
+            <a href="/company-details">Сведения о компании и реквизитах</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Юридическая информация</p>
+            <p>Наименование: ООО «FLEX»</p>
+            <p>ИНН: 0276969473</p>
+            <p>ОГРН: 1220200019214</p>
+            <p>Режим работы: пн-пт, 09:00-18:00</p>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© FLEX, 2026. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+    {% include '_request_modal.html' %}
+
+    <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-hero.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/technology-feature.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/technology-steps.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/technology-contact.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/request-modal.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/visit-tracker.js') }}" defer></script>
+  </body>
+</html>

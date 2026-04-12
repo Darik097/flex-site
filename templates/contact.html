@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты FLEX | Каменный Ковер в Уфе</title>
+<meta name="description" content="Контакты FLEX: телефон, email, адрес и карта проезда. Свяжитесь с нами для консультации по каменному ковру в Уфе и Республике Башкортостан.">
+<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('contact') }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="FLEX">
+<meta property="og:title" content="Контакты FLEX">
+<meta property="og:description" content="Телефон, email, адрес и карта компании FLEX. Консультации по каменному ковру в Уфе и по Республике Башкортостан.">
+<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('contact') }}">
+<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon 2/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicon 2/site.webmanifest') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/contact-map.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/request-modal.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api-maps.yandex.ru" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "name": "Контакты FLEX",
+      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('contact') }}",
+      "description": "Контактная информация компании FLEX для консультации и заказа проекта."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Контакты",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('contact') }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+  <body class="about-page">
+
+    <header class="header">
+      <div class="nav-shell">
+        <div class="mist mist-top"></div>
+        <div class="mist mist-top-secondary"></div>
+
+        <div class="nav">
+          <a href="/" class="logo" aria-label="Flex">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Flex" width="94" height="32">
+          </a>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="menu" id="site-menu">
+            <a href="/">ГЛАВНАЯ</a>
+            <a href="/catalog">ПРОЕКТЫ</a>
+            <a href="/about">О НАС</a>
+            <a href="/contact" class="is-active">КОНТАКТЫ</a>
+            <a href="/technology">ТЕХНОЛОГИЯ</a>
+            <a href="tel:+79033533449" class="menu-phone">+7(903)-353-34-49</a>
+          </nav>
+
+          <div class="phone">+7(903)-353-34-49</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="about-hero">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_home.png') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      </video>
+
+      <div class="about-hero__overlay"></div>
+      <div class="about-hero__mist"></div>
+
+      <span class="about-hero__orb about-hero__orb--left" aria-hidden="true"></span>
+      <span class="about-hero__orb about-hero__orb--right" aria-hidden="true"></span>
+
+      <div class="about-hero__content">
+        <div class="about-hero__headline">
+          <h1 class="about-hero__title">КОНТАКТЫ FLEX В УФЕ</h1>
+          <div class="about-hero__underline" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-map" id="contact-map">
+      <div class="contact-map__inner">
+        <div class="contact-map__grid">
+          <article class="contact-map__card">
+            <p class="contact-map__label">Адрес</p>
+            <p class="contact-map__text">
+              Российская Федерация, Республика<br>
+              Башкортостан, 450512, Уфимский<br>
+              район, с. Дмитриевка, переулок<br>
+              Рабочий, д. 29
+            </p>
+          </article>
+
+          <article class="contact-map__card">
+            <p class="contact-map__label">Телефоны</p>
+            <div class="contact-map__phones">
+              <a href="tel:+79033533449">+7(903)-353-34-49</a>
+              <a href="tel:+79625251645">+7(962)-525-16-45</a>
+            </div>
+          </article>
+
+          <article class="contact-map__card">
+            <p class="contact-map__label">Почта</p>
+            <a class="contact-map__mail" href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </article>
+        </div>
+
+        <div class="contact-map__divider" aria-hidden="true"></div>
+
+        <div class="contact-map__map-shell" data-contact-map>
+          <div class="contact-map__map" id="yandex-contact-map">
+            <script
+              type="text/javascript"
+              charset="utf-8"
+              async
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4d6b6bd173d0d3df3f768add1a459b6d87994093e86d886345ada20fd34aacf6&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+            ></script>
+          </div>
+          <div class="contact-map__overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__label">Flex</p>
+          <h2>УЗНАЙТЕ БОЛЬШЕ О НАШЕЙ КОМПАНИИ</h2>
+          <p class="site-footer__lead">
+            Добро пожаловать в мир инноваций и технологий вместе с командой FLEX.
+          </p>
+        </div>
+
+        <div class="site-footer__grid">
+          <div class="site-footer__col">
+            <p class="site-footer__title">Контакты</p>
+            <a href="tel:+79033533449">+7(903)-353-34-49</a>
+            <p>Республика Башкортостан, Уфимский район,<br>с. Дмитриевка, пер. Рабочий, д. 29</p>
+            <a href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Навигация</p>
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <a href="/catalog">Проекты</a>
+            <a href="/contact">Контакты</a>
+            <a href="/technology">Технология</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Документы</p>
+            <a href="/privacy-policy">Политика обработки персональных данных</a>
+            <a href="/consent">Согласие на обработку персональных данных</a>
+            <a href="/terms">Пользовательское соглашение</a>
+            <a href="/company-details">Сведения о компании и реквизитах</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Юридическая информация</p>
+            <p>Наименование: ООО «FLEX»</p>
+            <p>ИНН: 0276969473</p>
+            <p>ОГРН: 1220200019214</p>
+            <p>Режим работы: пн-пт, 09:00-18:00</p>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© FLEX, 2026. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    {% include '_request_modal.html' %}
+
+    <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-hero.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/contact-map.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/contact-animations.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/request-modal.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/visit-tracker.js') }}" defer></script>
+  </body>
+</html>

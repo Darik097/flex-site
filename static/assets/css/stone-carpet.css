@@ -1,0 +1,185 @@
+.stone-carpet {
+    position: relative;
+    background:
+        radial-gradient(circle at 50% -18%, rgba(226, 196, 160, 0.1) 0%, rgba(226, 196, 160, 0) 42%),
+        #25211b;
+    overflow: visible;
+    padding: 88px 0 124px;
+}
+
+.stone-carpet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        radial-gradient(circle at 50% 22%, rgba(255,255,255,0.04), transparent 34%);
+    pointer-events: none;
+}
+
+.stone-carpet__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto;
+    transform: translate3d(0, calc(var(--section-progress, 0) * -18px), 0);
+}
+
+.stone-carpet__intro {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 24px;
+    opacity: calc(0.86 + (var(--section-visibility, 1) * 0.14));
+}
+
+.stone-carpet__intro h2 {
+    font-family: 'Cygre';
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    color: rgba(255,255,255,0.92);
+}
+
+.stone-carpet__description {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.68);
+}
+
+.stone-carpet__viewport {
+    position: relative;
+    margin-top: 58px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 82px 0 74px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 50vw;
+    scrollbar-width: none;
+    cursor: grab;
+    transform: translate3d(0, calc(var(--section-progress, 0) * 12px), 0);
+}
+
+.stone-carpet__viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.stone-carpet__viewport:active {
+    cursor: grabbing;
+}
+
+.stone-carpet__gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(22px, 3vw, 40px);
+    width: max-content;
+    min-width: max-content;
+    margin: 0;
+    padding-inline: calc(50vw - 128px);
+}
+
+.stone-swatch {
+    --size: clamp(168px, 16vw, 246px);
+    flex: 0 0 auto;
+    width: var(--size);
+    position: relative;
+    scroll-snap-align: center;
+    transform: translateY(0) scale(0.82);
+    transform-origin: center center;
+    opacity: 0.54;
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.35s ease,
+        filter 0.35s ease;
+    filter: saturate(0.72) brightness(0.9);
+}
+
+.stone-swatch.is-center {
+    transform: translateY(0) scale(1.34);
+    opacity: 1;
+    filter: saturate(1) brightness(1.02);
+}
+
+.stone-swatch__orb {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.stone-carpet.is-gsap-ready .stone-swatch__orb {
+    will-change: transform, opacity;
+}
+
+.stone-swatch__orb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 34% 38%, rgba(255,255,255,0.12), transparent 28%),
+        linear-gradient(160deg, rgba(255,255,255,0.18), transparent 34%),
+        radial-gradient(circle at 50% 4%, rgba(255,255,255,0.16), transparent 34%),
+        radial-gradient(circle at 50% 120%, rgba(0,0,0,0.42), transparent 44%);
+    pointer-events: none;
+}
+
+.stone-swatch__orb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.stone-carpet.is-gsap-ready .stone-carpet__intro,
+.stone-carpet.is-gsap-ready .stone-carpet__viewport {
+    will-change: transform, opacity;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 42px, 0);
+    transition:
+        opacity 0.9s ease,
+        transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 720px) {
+    .stone-carpet {
+        padding: 72px 0 94px;
+    }
+
+    .stone-carpet__description {
+        font-size: 16px;
+    }
+
+    .stone-carpet__viewport {
+        padding: 56px 0 52px;
+        scroll-padding-inline: 50vw;
+    }
+
+    .stone-carpet__gallery {
+        gap: 18px;
+        padding-inline: calc(50vw - 92px);
+    }
+
+    .stone-swatch {
+        --size: 164px;
+    }
+
+    .stone-swatch.is-center {
+        transform: translateY(0) scale(1.24);
+    }
+}

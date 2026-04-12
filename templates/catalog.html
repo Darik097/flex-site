@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Проекты FLEX | Каменный Ковер в Уфе | Реализованные Объекты</title>
+<meta name="description" content="Реализованные проекты FLEX: дворы, дорожки, фасадные и интерьерные решения из каменного ковра в Уфе и по Республике Башкортостан.">
+<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="FLEX">
+<meta property="og:title" content="Проекты FLEX | Каменный Ковер в Уфе">
+<meta property="og:description" content="Галерея реализованных объектов FLEX: покрытия из каменного ковра, дворы, дорожки и фасадные решения.">
+<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}">
+<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/home_project2.png') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon 2/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicon 2/site.webmanifest') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-stats.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/catalog-projects.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-story.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/request-modal.css') }}">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Проекты FLEX",
+      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}",
+      "description": "Подборка реализованных проектов с применением каменного ковра и натуральных покрытий."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Проекты",
+          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+  <body class="about-page">
+
+    <header class="header">
+      <div class="nav-shell">
+        <div class="mist mist-top"></div>
+        <div class="mist mist-top-secondary"></div>
+
+        <div class="nav">
+          <a href="/" class="logo" aria-label="Flex">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Flex" width="94" height="32">
+          </a>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="menu" id="site-menu">
+            <a href="/">ГЛАВНАЯ</a>
+            <a href="/catalog" class="is-active">ПРОЕКТЫ</a>
+            <a href="/about">О НАС</a>
+            <a href="/contact">КОНТАКТЫ</a>
+            <a href="/technology">ТЕХНОЛОГИЯ</a>
+            <a href="tel:+79033533449" class="menu-phone">+7(903)-353-34-49</a>
+          </nav>
+
+          <div class="phone">+7(903)-353-34-49</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="about-hero">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/home_project2.png') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      </video>
+
+      <div class="about-hero__overlay"></div>
+      <div class="about-hero__mist"></div>
+
+      <span class="about-hero__orb about-hero__orb--left" aria-hidden="true"></span>
+      <span class="about-hero__orb about-hero__orb--right" aria-hidden="true"></span>
+
+      <div class="about-hero__content">
+        <div class="about-hero__headline">
+          <p class="catalog-hero__eyebrow">Коллекция реализованных объектов FLEX</p>
+          <h1 class="about-hero__title">ПРОЕКТЫ КАМЕННОГО КОВРА</h1>
+          <div class="about-hero__underline" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-stats" id="catalog-stats">
+      <div class="about-stats__inner">
+        <div class="about-stats__grid">
+          <article class="about-stats__item reveal-stats about-stats__item--wide">
+            <p class="about-stats__value about-stats__value--light">2022</p>
+            <p class="about-stats__label">Год основания</p>
+          </article>
+
+          <article class="about-stats__item reveal-stats">
+            <p class="about-stats__value about-stats__value--accent">90+</p>
+            <p class="about-stats__label">Проектов</p>
+          </article>
+
+          <article class="about-stats__item reveal-stats">
+            <p class="about-stats__value about-stats__value--accent">150</p>
+            <p class="about-stats__label">Цветовых смесей</p>
+          </article>
+
+          <article class="about-stats__item reveal-stats">
+            <p class="about-stats__value about-stats__value--accent">24ч</p>
+            <p class="about-stats__label">Произведение готово</p>
+          </article>
+
+          <article class="about-stats__item reveal-stats">
+            <p class="about-stats__value about-stats__value--accent">98%</p>
+            <p class="about-stats__label">Довольных клиентов</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-projects" id="catalog-projects">
+      <div class="catalog-projects__inner">
+        <div class="catalog-projects__heading">
+          <h2>
+            <span class="tone-light">РЕАЛИЗОВАННЫЕ</span>
+            <span class="tone-accent">ПРОЕКТЫ</span>
+          </h2>
+          <p>Нажмите на проект, чтобы раскрыть галерею, пролистать фотографии и открыть их на весь экран.</p>
+        </div>
+
+        {% for project in projects %}
+        <article class="project-accordion {% if loop.index is even %}is-reversed{% endif %}" data-project>
+          <button
+            class="project-accordion__summary"
+            type="button"
+            aria-expanded="{{ 'true' if loop.first else 'false' }}"
+            aria-controls="project-panel-{{ project.slug }}"
+          >
+            <div class="project-accordion__layout">
+              <div class="project-accordion__media">
+                <img
+                  src="{{ url_for('static', filename=project.featured_image) }}"
+                  alt="{{ project.featured_alt }}"
+                  loading="{{ 'eager' if loop.first else 'lazy' }}"
+                  decoding="async"
+                >
+              </div>
+
+              <div class="project-accordion__content">
+                <div class="project-accordion__arrow" aria-hidden="true"></div>
+
+                <div class="project-accordion__metric">
+                  <span class="project-accordion__number">{{ project.area }}</span>
+                  <span class="project-accordion__unit">{{ project.unit }}</span>
+                </div>
+
+                <div class="project-accordion__copy">
+                  {% for line in project.summary_lines %}
+                  <span>{{ line }}</span>
+                  {% endfor %}
+                </div>
+
+                <div class="project-accordion__action">
+                  <span>Смотреть галерею</span>
+                  <span class="project-accordion__toggle" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <div
+            class="project-accordion__panel {% if loop.first %}is-open{% endif %}"
+            id="project-panel-{{ project.slug }}"
+            {% if not loop.first %}hidden{% endif %}
+          >
+            <div class="project-accordion__panel-inner">
+              <div class="project-gallery" data-gallery>
+                {% for image in project.gallery %}
+                <button
+                  class="project-gallery__item"
+                  type="button"
+                  data-image-src="{{ url_for('static', filename=image.src) }}"
+                  data-image-alt="{{ image.alt }}"
+                  data-image-index="{{ loop.index0 }}"
+                >
+                  <img src="{{ url_for('static', filename=image.src) }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+                </button>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="catalog-links" id="catalog-links">
+      <div class="catalog-links__inner">
+        <p class="catalog-links__eyebrow">Популярные запросы</p>
+        <h2>ПОДРОБНЫЕ СТРАНИЦЫ ПО ТИПАМ РЕШЕНИЙ</h2>
+        <div class="catalog-links__grid">
+          <a href="/kamennyj-kover-ufa" class="catalog-links__item">Каменный ковер в Уфе</a>
+          <a href="/kamennyj-kover-cena" class="catalog-links__item">Каменный ковер цена</a>
+          <a href="/kamennyj-kover-dlya-ulicy" class="catalog-links__item">Каменный ковер для улицы</a>
+          <a href="/kamennyj-kover-dlya-krylca" class="catalog-links__item">Каменный ковер для крыльца</a>
+          <a href="/kamennyj-kover-dlya-terrasy" class="catalog-links__item">Каменный ковер для террасы</a>
+          <a href="/kamennyj-kover-dlya-stupenej" class="catalog-links__item">Каменный ковер для ступеней</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-lightbox" data-lightbox hidden>
+      <button class="project-lightbox__backdrop" type="button" data-lightbox-close aria-label="Закрыть просмотр"></button>
+      <div class="project-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Просмотр фотографии проекта">
+        <button class="project-lightbox__close" type="button" data-lightbox-close aria-label="Закрыть просмотр">×</button>
+        <button class="project-lightbox__nav project-lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Предыдущее фото"></button>
+        <figure class="project-lightbox__figure">
+          <img src="" alt="" data-lightbox-image>
+          <figcaption data-lightbox-caption></figcaption>
+        </figure>
+        <button class="project-lightbox__nav project-lightbox__nav--next" type="button" data-lightbox-next aria-label="Следующее фото"></button>
+      </div>
+    </div>
+
+    <section class="about-story" id="about-story">
+      <div class="about-story__inner">
+        <div class="about-story__top reveal-story">
+          <div class="about-story__heading">
+            <h2>О НАС</h2>
+            <span>FLEX</span>
+          </div>
+        </div>
+
+        <div class="about-story__copy reveal-story">
+          <p class="about-story__text">
+            FLEX — команда специалистов, создающая современные и долговечные решения для
+            интерьера и экстерьера. Мы профессионально занимаемся укладкой каменного ковра,
+            устройством наливных полов и монтажом фасадных термопанелей, сочетая эстетику,
+            технологичность и высокое качество материалов. Наш подход основан на внимании
+            к деталям, надёжных технологиях и стремлении создавать покрытия и фасады,
+            которые сохраняют прочность, комфорт и привлекательный внешний вид на долгие годы.
+          </p>
+        </div>
+
+        <div class="about-story__visual reveal-story">
+          <img src="{{ url_for('static', filename='images/stone_warm.png') }}" alt="Современный фасад дома FLEX" loading="lazy" decoding="async">
+        </div>
+
+        <div class="about-story__bottom reveal-story">
+          <span class="about-story__dot"></span>
+          <p>ДИЗАЙНЕРЫ ПРОДУМАЛИ ВСЕ</p>
+          <span class="about-story__dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__label">Flex</p>
+          <h2>УЗНАЙТЕ БОЛЬШЕ О НАШЕЙ КОМПАНИИ</h2>
+          <p class="site-footer__lead">
+            Добро пожаловать в мир инноваций и технологий вместе с командой FLEX.
+          </p>
+        </div>
+
+        <div class="site-footer__grid">
+          <div class="site-footer__col">
+            <p class="site-footer__title">Контакты</p>
+            <a href="tel:+79033533449">+7(903)-353-34-49</a>
+            <p>Республика Башкортостан, Уфимский район,<br>с. Дмитриевка, пер. Рабочий, д. 29</p>
+            <a href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Навигация</p>
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <a href="/catalog">Проекты</a>
+            <a href="/contact">Контакты</a>
+            <a href="/technology">Технология</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Документы</p>
+            <a href="/privacy-policy">Политика обработки персональных данных</a>
+            <a href="/consent">Согласие на обработку персональных данных</a>
+            <a href="/terms">Пользовательское соглашение</a>
+            <a href="/company-details">Сведения о компании и реквизитах</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Юридическая информация</p>
+            <p>Наименование: ООО «FLEX»</p>
+            <p>ИНН: 0276969473</p>
+            <p>ОГРН: 1220200019214</p>
+            <p>Режим работы: пн-пт, 09:00-18:00</p>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© FLEX, 2026. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    {% include '_request_modal.html' %}
+
+    <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-hero.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-stats.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/catalog-projects.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-story.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/request-modal.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/visit-tracker.js') }}" defer></script>
+  </body>
+</html>

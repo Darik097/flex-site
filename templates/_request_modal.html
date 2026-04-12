@@ -1,0 +1,38 @@
+<div class="request-modal" data-request-modal hidden>
+  <button class="request-modal__backdrop" type="button" data-request-close aria-label="Закрыть окно"></button>
+
+  <div class="request-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="request-modal-title">
+    <button class="request-modal__close" type="button" data-request-close aria-label="Закрыть окно">×</button>
+
+    <div class="request-modal__eyebrow">FLEX</div>
+    <h2 class="request-modal__title" id="request-modal-title">ОСТАВИТЬ ЗАЯВКУ</h2>
+    <p class="request-modal__lead" data-request-lead>
+      Оставьте контакты, и мы свяжемся с вами для обсуждения проекта.
+    </p>
+
+    <form class="request-modal__form" data-request-modal-form>
+      <input type="hidden" name="productTitle" value="">
+      <input type="hidden" name="sourcePage" value="">
+      <input type="hidden" name="formType" value="modal">
+
+      <label class="request-modal__field">
+        <span>Имя</span>
+        <input type="text" name="name" placeholder="Ваше имя" required>
+      </label>
+
+      <label class="request-modal__field">
+        <span>Телефон</span>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" maxlength="18" data-phone-input required>
+      </label>
+
+      <label class="request-modal__check">
+        <input type="checkbox" name="consent" required>
+        <span>Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</span>
+      </label>
+
+      <p class="request-modal__status" data-request-status aria-live="polite"></p>
+
+      <button class="btn request-modal__submit" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+    </form>
+  </div>
+</div>

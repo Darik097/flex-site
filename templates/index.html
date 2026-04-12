@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каменный Ковер в Уфе | Укладка Каменного Ковра под Ключ | FLEX</title>
+<meta name="description" content="Каменный ковер в Уфе и по Республике Башкортостан под ключ. FLEX проектирует и выполняет бесшовные покрытия для дворов, дорожек, террас, входных групп, фасадов и интерьеров.">
+<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('index') }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="FLEX">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="FLEX">
+<meta property="og:title" content="Каменный Ковер в Уфе | FLEX">
+<meta property="og:description" content="Укладка каменного ковра под ключ в Уфе: дворы, дорожки, террасы, фасады и интерьерные покрытия.">
+<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('index') }}">
+<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta property="og:image:alt" content="Каменный ковер FLEX на объекте в Уфе">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Каменный Ковер в Уфе | FLEX">
+<meta name="twitter:description" content="Натуральные бесшовные покрытия и каменный ковер под ключ в Уфе и по Республике Башкортостан.">
+<meta name="twitter:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}">
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon 2/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='favicon 2/site.webmanifest') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/stone-carpet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/steps-showcase.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/request-modal.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#organization",
+      "name": "FLEX",
+      "description": "Каменный ковер, натуральные бесшовные покрытия, фасадные и интерьерные решения в Уфе и Республике Башкортостан.",
+      "image": "{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}",
+      "telephone": "+7-903-353-34-49",
+      "email": "flex.2022@bk.ru",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "переулок Рабочий, д. 29",
+        "addressLocality": "с. Дмитриевка",
+        "addressRegion": "Республика Башкортостан",
+        "postalCode": "450512",
+        "addressCountry": "RU"
+      },
+      "areaServed": ["Уфа", "Республика Башкортостан"],
+      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#website",
+      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}",
+      "name": "FLEX",
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Укладка каменного ковра под ключ",
+      "provider": {
+        "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#organization"
+      },
+      "areaServed": ["Уфа", "Республика Башкортостан"],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Где можно использовать каменный ковер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Каменный ковер подходит для дворов, дорожек, террас, ступеней, входных групп, балконов, фасадных зон и отдельных интерьерных решений."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Подходит ли покрытие для климата Башкортостана?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, при правильной подготовке основания и соблюдении технологии каменный ковер устойчив к влаге, перепадам температур и эксплуатационным нагрузкам."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько служит каменный ковер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Срок службы зависит от основания, интенсивности эксплуатации и выбранной системы материалов, но качественно выполненное покрытие рассчитано на долгую эксплуатацию."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+  <body>
+
+    <header class="header">
+      <div class="nav-shell">
+        <div class="mist mist-top"></div>
+        <div class="mist mist-top-secondary"></div>
+
+        <div class="nav">
+          <a href="/" class="logo" aria-label="Flex">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Flex" width="94" height="32" fetchpriority="high">
+          </a>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="menu" id="site-menu">
+            <a href="/" class="is-active">ГЛАВНАЯ</a>
+            <a href="/catalog">ПРОЕКТЫ</a>
+            <a href="/about">О НАС</a>
+            <a href="/contact">КОНТАКТЫ</a>
+            <a href="/technology">ТЕХНОЛОГИЯ</a>
+            <a href="tel:+79033533449" class="menu-phone">+7(903)-353-34-49</a>
+          </nav>
+
+          <div class="phone">+7(903)-353-34-49</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="top" data-scroll-section="hero">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_home.png') }}" class="hero-video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      </video>
+
+      <div class="overlay"></div>
+      <div class="hero-backdrop" aria-hidden="true">
+        <div class="hero-backdrop-glow"></div>
+        <div class="hero-backdrop-grid"></div>
+        <div class="hero-backdrop-ring"></div>
+        <div class="hero-backdrop-line"></div>
+      </div>
+      <div class="mist mist-left"></div>
+      <div class="mist mist-right"></div>
+      <div class="mist mist-bottom"></div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <p class="hero-kicker">Каменный ковер в Уфе и по Республике Башкортостан</p>
+          <h1 class="hero-title-line">КАМЕННЫЙ КОВЕР</h1>
+          <p class="hero-title-line hero-title-line--secondary">ДЛЯ ДВОРОВ, ДОРОЖЕК, ТЕРРАС И ВХОДНЫХ ГРУПП</p>
+          <p class="hero-title-line hero-title-line--secondary">ПОД КЛЮЧ ОТ ПРОЕКТА ДО УКЛАДКИ</p>
+
+          <p class="hero-copy">
+            Проектируем и выполняем бесшовные покрытия из натуральной каменной крошки:
+            для частных домов, коммерческих объектов, фасадных зон и интерьерных решений.
+          </p>
+
+          <a href="#" class="btn hero-cta" data-request-open data-request-title="Архитектура камня" data-request-source="Главная страница">ЗАКАЗАТЬ ПРОЕКТ</a>
+        </div>
+
+        <div class="hero-right hero-note">
+          <h2>ПРОЧНОСТЬ И ЭСТЕТИКА</h2>
+          <p>ПОКРЫТИЯ С ДОЛГИМ СРОКОМ СЛУЖБЫ<br>И АРХИТЕКТУРНОЙ ФАКТУРОЙ</p>
+        </div>
+      </div>
+
+      <div class="dot" style="top:25%; left:17%;" data-text="Натуральный камень" data-depth="-16"></div>
+      <div class="dot" style="top:37%; left:79%;" data-text="Премиальная отделка" data-depth="-34"></div>
+      <div class="dot" style="top:32%; left:26%;" data-text="Фасадные решения" data-depth="-22"></div>
+      <div class="dot" style="top:61%; left:60%;" data-text="Современная архитектура" data-depth="-28"></div>
+      <div class="dot" style="top:69%; left:92%;" data-text="Интерьерные покрытия" data-depth="-18"></div>
+      <div class="dot" style="top:78%; left:46%;" data-text="Точная геометрия" data-depth="-30"></div>
+      <div class="dot" style="top:78%; left:73%;" data-text="Природная текстура" data-depth="-24"></div>
+    </section>
+
+    <section class="stone-carpet" id="stone-carpet" data-scroll-section="stone-carpet">
+      <div class="stone-carpet__inner">
+        <div class="stone-carpet__intro reveal">
+          <h2>ЧТО ТАКОЕ КАМЕННЫЙ КОВЕР</h2>
+          <p class="stone-carpet__description">
+            Каменный ковёр — это декоративное бесшовное покрытие из натуральной каменной крошки
+            и прочного полимерного связующего, создающее долговечную, водопроницаемую и эстетичную
+            поверхность для улиц и интерьера.
+          </p>
+        </div>
+
+        <div class="stone-carpet__viewport reveal" data-stone-viewport>
+          <div class="stone-carpet__gallery" data-stone-gallery>
+            <article class="stone-swatch stone-swatch--graphite" data-index="0">
+              <div class="stone-swatch__orb">
+                <img src="{{ url_for('static', filename='images/carpet1.png') }}" alt="Каменный ковер графит">
+              </div>
+            </article>
+            <article class="stone-swatch stone-swatch--ruby" data-index="1">
+              <div class="stone-swatch__orb">
+                <img src="{{ url_for('static', filename='images/carpet2.png') }}" alt="Каменный ковер рубин" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="stone-swatch stone-swatch--sandstone" data-index="2">
+              <div class="stone-swatch__orb">
+                <img src="{{ url_for('static', filename='images/carpet3.png') }}" alt="Каменный ковер песочный" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="stone-swatch stone-swatch--emerald" data-index="3">
+              <div class="stone-swatch__orb">
+                <img src="{{ url_for('static', filename='images/carpet4.png') }}" alt="Каменный ковер изумруд" loading="lazy" decoding="async">
+              </div>
+            </article>
+            <article class="stone-swatch stone-swatch--ivory" data-index="4">
+              <div class="stone-swatch__orb">
+                <img src="{{ url_for('static', filename='images/carpet5.png') }}" alt="Каменный ковер слоновая кость" loading="lazy" decoding="async">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-highlights" id="seo-highlights" data-scroll-section="seo-highlights">
+      <div class="seo-highlights__inner">
+        <div class="seo-highlights__intro">
+          <p class="seo-highlights__eyebrow">Почему FLEX</p>
+          <h2>УКЛАДКА КАМЕННОГО КОВРА ПОД ЗАДАЧИ ВАШЕГО ОБЪЕКТА</h2>
+          <p>
+            Работаем с частными домами, входными группами, дорожками, террасами, балконами,
+            коммерческими площадками и архитектурными фасадными зонами в Уфе и по Республике Башкортостан.
+          </p>
+        </div>
+
+        <div class="seo-highlights__grid">
+          <article class="seo-highlights__card">
+            <h3>Подбор системы</h3>
+            <p>Подбираем фракцию, цвет, связующее и схему устройства покрытия под условия эксплуатации и эстетику объекта.</p>
+          </article>
+          <article class="seo-highlights__card">
+            <h3>Подготовка основания</h3>
+            <p>Качество каменного ковра начинается с правильной подготовки основания, грунтования и контроля геометрии.</p>
+          </article>
+          <article class="seo-highlights__card">
+            <h3>Работа под климат региона</h3>
+            <p>Учитываем сезонность, влагу, перепады температур и реальную нагрузку на покрытие в условиях Башкортостана.</p>
+          </article>
+          <article class="seo-highlights__card">
+            <h3>Применение на разных зонах</h3>
+            <p>Делаем покрытия для дворов, садовых дорожек, крылец, террас, бассейновых зон, лестниц и интерьерных участков.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps-showcase" id="steps-showcase" data-scroll-section="steps-showcase">
+      <div class="steps-showcase__grid" aria-hidden="true">
+        <span class="steps-showcase__line steps-showcase__line--v line-a"></span>
+        <span class="steps-showcase__line steps-showcase__line--v line-b"></span>
+        <span class="steps-showcase__line steps-showcase__line--h line-c"></span>
+      </div>
+
+      <div class="steps-showcase__content">
+        <div class="steps-showcase__title">
+          <h2>ЭТАПЫ УКЛАДКИ</h2>
+        </div>
+
+        <article class="step-card" data-step-index="1">
+          <p class="step-card__index">ЭТАП ОДИН</p>
+          <p class="step-card__text">
+            Основание тщательно очищается, выравнивается и грунтуется для обеспечения
+            идеальной адгезии и долговечности покрытия.
+          </p>
+        </article>
+
+        <article class="step-card" data-step-index="2">
+          <p class="step-card__index">ЭТАП ДВА</p>
+          <p class="step-card__text">
+            Натуральная каменная крошка равномерно смешивается с высокопрочным
+            полимерным связующим до получения однородной структуры.
+          </p>
+        </article>
+
+        <article class="step-card" data-step-index="3">
+          <p class="step-card__index">ЭТАП ТРИ</p>
+          <p class="step-card__text">
+            Готовая смесь аккуратно распределяется по поверхности и формируется
+            в ровный монолитный слой с премиальной текстурой камня.
+          </p>
+        </article>
+
+        <article class="step-card" data-step-index="4">
+          <p class="step-card__index">ЭТАП ЧЕТЫРЕ</p>
+          <p class="step-card__text">
+            Покрытие проходит этап естественного затвердевания, образуя прочную,
+            долговечную и эстетичную поверхность.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="craft-team" id="craft-team" data-scroll-section="craft-team">
+      <div class="craft-team__inner">
+        <div class="craft-team__copy">
+          <h2>
+            ЛЮДИ, КОТОРЫЕ
+            <span>ПРЕВРАЩАЮТ КАМЕНЬ</span>
+            В АРХИТЕКТУРУ
+          </h2>
+
+          <p>
+            Flex — команда специалистов, создающая современные и долговечные решения для пространства.
+            Мы работаем с каменными коврами, наливными полами и фасадными термопанелями, объединяя
+            передовые технологии, качественные материалы и профессиональный опыт. Для нас важна каждая
+            деталь — от подготовки основания до идеальной текстуры готового покрытия. Наша цель —
+            создавать не просто поверхности, а эстетичные, надежные и долговечные решения, которые
+            подчеркивают стиль пространства и служат долгие годы.
+          </p>
+
+          <a href="#" class="btn craft-team__btn" data-request-open data-request-title="Консультация по проекту" data-request-source="Главная страница">ЗАКАЗАТЬ ПРОЕКТ</a>
+        </div>
+
+        <div class="craft-team__visual">
+          <div class="craft-team__ring" aria-hidden="true"></div>
+
+          <figure class="craft-team__photo craft-team__photo--left">
+            <img src="{{ url_for('static', filename='images/stone_home1.png') }}" alt="Современный дом с каменной отделкой" loading="lazy" decoding="async">
+          </figure>
+
+          <figure class="craft-team__photo craft-team__photo--right">
+            <img src="{{ url_for('static', filename='images/stone_home2.png') }}" alt="Премиальный дом с каменной архитектурой" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-zones" id="seo-zones" data-scroll-section="seo-zones">
+      <div class="seo-zones__inner">
+        <div class="seo-zones__copy">
+          <p class="seo-zones__eyebrow">География работ</p>
+          <h2>РАБОТАЕМ В УФЕ И ПО РЕСПУБЛИКЕ БАШКОРТОСТАН</h2>
+          <p>
+            Принимаем заявки на объекты в Уфе, пригороде и по региону. Консультируем по типу основания,
+            назначению покрытия, срокам и оптимальной конфигурации системы под конкретный проект.
+          </p>
+        </div>
+
+        <div class="seo-zones__list">
+          <article class="seo-zones__item">
+            <h3>Для частных домов</h3>
+            <p>Входные группы, дворы, дорожки, ступени, террасы, отмостки и балконы.</p>
+          </article>
+          <article class="seo-zones__item">
+            <h3>Для коммерческих объектов</h3>
+            <p>Офисные входные зоны, общественные пространства, внутренние дворики и фасадные участки.</p>
+          </article>
+          <article class="seo-zones__item">
+            <h3>Для архитектурных решений</h3>
+            <p>Фасадные покрытия, декоративные плоскости, комбинированные зоны и современные интерьерные акценты.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-atelier" id="contact-atelier" data-scroll-section="contact-atelier">
+      <div class="contact-atelier__texture" aria-hidden="true"></div>
+      <div class="contact-atelier__shade" aria-hidden="true"></div>
+
+      <div class="contact-atelier__inner">
+        <div class="contact-atelier__panel">
+          <p class="contact-atelier__eyebrow">Связаться с нами</p>
+          <h2>ДАВАЙТЕ ВОПЛОТИМ<br>ПРОЧНОСТЬ В РЕАЛЬНОСТЬ</h2>
+
+          <div class="contact-atelier__details">
+            <a class="contact-atelier__phone" href="tel:+79033533449">+7(903)-353-34-49</a>
+            <p class="contact-atelier__address">
+              Российская Федерация, Республика Башкортостан, 450512, Уфимский район,
+              с. Дмитриевка, переулок Рабочий, д. 29
+            </p>
+          </div>
+
+          <div class="contact-atelier__divider">
+            <span></span>
+            <p>или</p>
+            <span></span>
+          </div>
+
+          <form class="contact-atelier__form" data-inline-request-form data-request-title="Форма консультации" data-request-source="Главная страница">
+            <label class="contact-atelier__field">
+              <span>Имя</span>
+              <input type="text" name="name" placeholder="Ваше имя" required>
+            </label>
+
+            <label class="contact-atelier__field">
+              <span>Телефон</span>
+              <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" maxlength="18" data-phone-input required>
+            </label>
+
+            <label class="contact-atelier__check">
+              <input type="checkbox" name="consent" required>
+              <span>Нажимая кнопку, вы соглашаетесь с обработкой персональных данных и условиями политики конфиденциальности.</span>
+            </label>
+
+            <p class="contact-atelier__status" data-inline-request-status aria-live="polite"></p>
+            <button type="submit" class="btn contact-atelier__btn">ОСТАВИТЬ ЗАЯВКУ</button>
+          </form>
+        </div>
+
+        <div class="contact-atelier__accent" aria-hidden="true">
+          <div class="contact-atelier__ring"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-faq" id="seo-faq" data-scroll-section="seo-faq">
+      <div class="seo-faq__inner">
+        <div class="seo-faq__intro">
+          <p class="seo-faq__eyebrow">FAQ</p>
+          <h2>ЧАСТЫЕ ВОПРОСЫ О КАМЕННОМ КОВРЕ</h2>
+        </div>
+
+        <div class="seo-faq__list">
+          <article class="seo-faq__item">
+            <h3>Где можно использовать каменный ковер?</h3>
+            <p>Покрытие подходит для дворов, дорожек, террас, крылец, ступеней, входных групп, балконов, фасадных зон и отдельных интерьерных решений.</p>
+          </article>
+          <article class="seo-faq__item">
+            <h3>Подходит ли каменный ковер для климата Башкортостана?</h3>
+            <p>Да. При корректной подготовке основания и соблюдении технологии покрытие показывает хорошую устойчивость к влаге, температурным колебаниям и эксплуатационной нагрузке.</p>
+          </article>
+          <article class="seo-faq__item">
+            <h3>От чего зависит срок службы покрытия?</h3>
+            <p>От качества основания, выбранной системы материалов, соблюдения технологии укладки и условий дальнейшей эксплуатации объекта.</p>
+          </article>
+          <article class="seo-faq__item">
+            <h3>Можно ли заказать проект под конкретный стиль дома?</h3>
+            <p>Да. FLEX подбирает цветовую смесь, фракцию и визуальное решение покрытия под архитектуру, фасад и функциональную задачу пространства.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-cluster" id="seo-cluster" data-scroll-section="seo-cluster">
+      <div class="seo-cluster__inner">
+        <p class="seo-cluster__eyebrow">Популярные решения</p>
+        <h2>ПОДРОБНЫЕ СТРАНИЦЫ ПО ЧАСТЫМ ЗАПРОСАМ</h2>
+        <div class="seo-cluster__links">
+          <a href="/kamennyj-kover-ufa" class="seo-cluster__link">Каменный ковер в Уфе</a>
+          <a href="/kamennyj-kover-cena" class="seo-cluster__link">Каменный ковер цена</a>
+          <a href="/kamennyj-kover-dlya-ulicy" class="seo-cluster__link">Каменный ковер для улицы</a>
+          <a href="/kamennyj-kover-dlya-krylca" class="seo-cluster__link">Каменный ковер для крыльца</a>
+          <a href="/kamennyj-kover-dlya-terrasy" class="seo-cluster__link">Каменный ковер для террасы</a>
+          <a href="/kamennyj-kover-dlya-stupenej" class="seo-cluster__link">Каменный ковер для ступеней</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer" id="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__label">Flex</p>
+          <h2>УЗНАЙТЕ БОЛЬШЕ О НАШЕЙ КОМПАНИИ</h2>
+          <p class="site-footer__lead">
+            Добро пожаловать в мир инноваций и технологий вместе с командой FLEX.
+          </p>
+        </div>
+
+        <div class="site-footer__grid">
+          <div class="site-footer__col">
+            <p class="site-footer__title">Контакты</p>
+            <a href="tel:+79033533449">+7(903)-353-34-49</a>
+            <p>Республика Башкортостан, Уфимский район,<br>с. Дмитриевка, пер. Рабочий, д. 29</p>
+            <a href="mailto:flex.2022@bk.ru">flex.2022@bk.ru</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Навигация</p>
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <a href="/catalog">Проекты</a>
+            <a href="/technology">Технология</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Документы</p>
+            <a href="/privacy-policy">Политика обработки персональных данных</a>
+            <a href="/consent">Согласие на обработку персональных данных</a>
+            <a href="/terms">Пользовательское соглашение</a>
+            <a href="/company-details">Сведения о компании и реквизитах</a>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__title">Юридическая информация</p>
+            <p>Наименование: ООО «FLEX»</p>
+            <p>ИНН: 0276969473</p>
+            <p>ОГРН: 1220200019214 </p>
+            <p>Режим работы: пн-пт, 09:00-18:00</p>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© FLEX, 2026. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+    {% include '_request_modal.html' %}
+    <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/stone-carpet.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/request-modal.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/visit-tracker.js') }}" defer></script>
+  </body>
+</html>
