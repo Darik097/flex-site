@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000
 
 BASE_DIR = Path(app.root_path)
-STATS_DB_PATH = BASE_DIR / "analytics.sqlite3"
+STATS_DB_PATH = Path(os.getenv("STATS_DB_PATH", str(BASE_DIR / "analytics.sqlite3"))).expanduser()
 STATS_REPORT_TIME = os.getenv("STATS_REPORT_TIME", "21:00").strip()
 STATS_REPORT_TZ = os.getenv("STATS_REPORT_TZ", "Europe/Moscow").strip()
 BOT_UA_MARKERS = (

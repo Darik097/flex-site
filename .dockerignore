@@ -1,0 +1,10 @@
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.venv/
+venv/
+analytics.sqlite3
+*.sqlite3
