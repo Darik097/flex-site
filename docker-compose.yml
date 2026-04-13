@@ -4,7 +4,7 @@ services:
     container_name: flex-site
     restart: unless-stopped
     ports:
-      - "${PORT:-8000}:8000"
+      - "18778:8000"
     environment:
       PORT: 8000
       FLASK_DEBUG: 0
