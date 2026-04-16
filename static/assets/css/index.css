@@ -1010,6 +1010,11 @@ html {
         padding: 64px 0 72px;
     }
 
+    .seo-cluster__inner {
+        width: auto;
+        margin: 0 20px;
+    }
+
     .seo-cluster__links {
         display: grid;
         grid-template-columns: 1fr;
@@ -1025,6 +1030,7 @@ html {
         text-align: left;
         padding: 14px 16px;
         line-height: 1.35;
+        overflow: hidden;
     }
 }
 
