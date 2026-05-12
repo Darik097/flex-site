@@ -25,6 +25,7 @@ const initCatalogPageAnimations = () => {
     const hero = document.querySelector(".about-hero");
     const stats = document.querySelector(".about-stats");
     const catalogProjects = document.querySelector(".catalog-projects");
+    const beforeAfterShowcase = document.querySelector(".before-after-showcase");
     const story = document.querySelector(".about-story");
 
     if (hero) {
@@ -242,6 +243,38 @@ const initCatalogPageAnimations = () => {
         });
     }
 
+    if (beforeAfterShowcase) {
+        const heading = beforeAfterShowcase.querySelector(".before-after-showcase__heading");
+        const cards = beforeAfterShowcase.querySelectorAll(".before-after-card");
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: beforeAfterShowcase,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            }
+        })
+            .fromTo(heading, {
+                autoAlpha: 0,
+                y: 36
+            }, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.82,
+                ease: "power3.out"
+            })
+            .fromTo(cards, {
+                autoAlpha: 0,
+                y: 28
+            }, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.76,
+                stagger: 0.08,
+                ease: "power3.out"
+            }, 0.12);
+    }
+
     if (story) {
         story.classList.add("is-gsap-ready");
         const top = story.querySelector(".about-story__top");
@@ -404,6 +437,25 @@ projectAccordions.forEach((accordion) => {
         const isOpen = accordion.classList.contains("is-open");
         setAccordionState(accordion, !isOpen);
     });
+});
+
+document.querySelectorAll("[data-before-after]").forEach((compare) => {
+    const range = compare.querySelector("[data-before-after-range]");
+    const overlay = compare.querySelector("[data-before-after-overlay]");
+    const divider = compare.querySelector("[data-before-after-divider]");
+
+    if (!range || !overlay || !divider) {
+        return;
+    }
+
+    const syncCompare = () => {
+        const value = `${range.value}%`;
+        overlay.style.width = value;
+        divider.style.left = value;
+    };
+
+    range.addEventListener("input", syncCompare);
+    syncCompare();
 });
 
 const renderLightbox = () => {

@@ -88,6 +88,39 @@ CATALOG_PROJECTS = [
     },
 ]
 
+CATALOG_BEFORE_AFTER_PROJECTS = [
+    {
+        "slug": "stone-yard-200-compare",
+        "eyebrow": "Двор 200 м²",
+        "title": "Входная группа и фасадная зона",
+        "description": "Сравнение до и после устройства каменного ковра на частном объекте.",
+        "before_image": "images/home_project1.png",
+        "before_alt": "Объект до устройства каменного ковра",
+        "after_image": "images/stone_home.png",
+        "after_alt": "Объект после устройства каменного ковра",
+    },
+    {
+        "slug": "front-area-417-compare",
+        "eyebrow": "Площадка 417 м²",
+        "title": "Парадная часть перед домом",
+        "description": "Покрытие собрало архитектуру участка в цельную, аккуратную композицию.",
+        "before_image": "images/home_project2.png",
+        "before_alt": "Площадка перед домом до завершения работ",
+        "after_image": "images/stone_home1.png",
+        "after_alt": "Площадка перед домом после завершения работ",
+    },
+    {
+        "slug": "pathway-compare",
+        "eyebrow": "Дорожки",
+        "title": "Маршруты и примыкания",
+        "description": "До и после переосмысления дорожек и переходов в едином декоративном покрытии.",
+        "before_image": "images/stone_project2.png",
+        "before_alt": "Зона дорожек до обновления покрытия",
+        "after_image": "images/stone_home2.png",
+        "after_alt": "Зона дорожек после обновления покрытия",
+    },
+]
+
 LEGAL_PAGES = {
     "privacy-policy": {
         "title": "Политика обработки персональных данных | FLEX",
@@ -557,7 +590,11 @@ def index():
 
 @app.route("/catalog")
 def catalog():
-    return render_template("catalog.html", projects=CATALOG_PROJECTS)
+    return render_template(
+        "catalog.html",
+        projects=CATALOG_PROJECTS,
+        before_after_projects=CATALOG_BEFORE_AFTER_PROJECTS,
+    )
 
 @app.route("/about")
 def about():
