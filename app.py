@@ -86,27 +86,41 @@ CATALOG_PROJECTS = [
             {"src": "images/stone_warm.png", "alt": "Тёплый фасад дома с архитектурной подсветкой"},
         ],
     },
+
+   {
+        "slug": "entrance-stairs-premium",
+        "area": "148",
+        "unit": "м²",
+        "summary_lines": ["Лестница", "из премиального каменного ковра"],
+        "featured_image": "images/stairs1.jpg",
+        "featured_alt": "Лестницаиз каменного ковра",
+        "gallery": [
+            {"src": "images/stairs1.jpg", "alt": "Лестница с покрытием из каменного ковра"},
+            {"src": "images/stairs2.jpg", "alt": "Входная группа с декоративным каменным покрытием"},
+            {"src": "images/stairs3.jpg", "alt": "Крыльцо и ступени с премиальной каменной фактурой"}
+        ],
+    },
 ]
 
 CATALOG_BEFORE_AFTER_PROJECTS = [
     {
         "slug": "stone-yard-200-compare",
-        "eyebrow": "Двор 200 м²",
-        "title": "Входная группа и фасадная зона",
-        "description": "Сравнение до и после устройства каменного ковра на частном объекте.",
-        "before_image": "images/home_project1.png",
+        "eyebrow": "Интерьерная лестница",
+        "title": "Многоуровневая лестница в современном интерьере",
+        "description": "Каменный ковер подчеркнул архитектуру пространства, объединив этажи в единую премиальную композицию с выразительной фактурой и безопасным нескользящим покрытием",
+        "before_image": "images/after1.jpg",
         "before_alt": "Объект до устройства каменного ковра",
-        "after_image": "images/stone_home.png",
+        "after_image": "images/before1.jpg",
         "after_alt": "Объект после устройства каменного ковра",
     },
     {
         "slug": "front-area-417-compare",
-        "eyebrow": "Площадка 417 м²",
-        "title": "Парадная часть перед домом",
-        "description": "Покрытие собрало архитектуру участка в цельную, аккуратную композицию.",
-        "before_image": "images/home_project2.png",
+        "eyebrow": "Входная группа",
+        "title": "Крыльцо, лестница и дорожка к дому",
+        "description": "Каменный ковер объединил входную зону в цельную архитектурную композицию, подчеркнув геометрию лестницы, крыльца и дорожки премиальной фактурой покрытия",
+        "before_image": "images/after2.jpg",
         "before_alt": "Площадка перед домом до завершения работ",
-        "after_image": "images/stone_home1.png",
+        "after_image": "images/before2.jpg",
         "after_alt": "Площадка перед домом после завершения работ",
     },
     {
