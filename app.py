@@ -109,6 +109,8 @@ CATALOG_PROJECTS = [
         "featured_alt": "Современный двор с каменным покрытием",
         "gallery": [
             {"src": "images/stone_home-optimized.jpg", "alt": "Современный двор с каменным покрытием"},
+            {"src": "images/stone_project_rakurs2.png", "alt": "Современный двор с каменным покрытием"},
+            {"src": "images/stone_project2.png", "alt": "Современный двор с каменным покрытием"},
         ],
     },
     {
@@ -120,6 +122,9 @@ CATALOG_PROJECTS = [
         "featured_alt": "Площадка перед домом с каменным покрытием",
         "gallery": [
             {"src": "images/home_project2-optimized.jpg", "alt": "Площадка перед домом с каменным покрытием"},
+            {"src": "images/stone_project2_rakurs2.png", "alt": "Современный двор с каменным покрытием"},
+            {"src": "images/stone_project2.png", "alt": "Современный двор с каменным покрытием"},
+
         ],
     },
 
@@ -128,10 +133,12 @@ CATALOG_PROJECTS = [
         "area": "363",
         "unit": "м²",
         "summary_lines": ["Дорожки", "из декоративного каменного ковра"],
-        "featured_image": "images/garden-optimized.jpg",
+        "featured_image": "images/stone_home2-optimized.jpg",
         "featured_alt": "Дорожки из декоративного каменного ковра",
         "gallery": [
-            {"src": "images/garden-optimized.jpg", "alt": "Садовая зона с декоративным каменным покрытием"},
+            {"src": "images/stone_home2-optimized.jpg", "alt": "Садовая зона с декоративным каменным покрытием"},
+            {"src": "images/stone_project3_rakurs2.png", "alt": "Современный двор с каменным покрытием"},
+            {"src": "images/stone_project3_rakurs3.png", "alt": "Современный двор с каменным покрытием"},
         ],
     },
 
