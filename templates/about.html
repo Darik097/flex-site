@@ -13,7 +13,7 @@
 <meta property="og:title" content="О Компании FLEX">
 <meta property="og:description" content="Команда FLEX, опыт, подход к проектам и услуги по устройству каменного ковра в Уфе и по Республике Башкортостан.">
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_warm.png') }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_warm-optimized.jpg') }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
@@ -98,8 +98,8 @@
     </header>
 
     <section class="about-hero">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_warm.png') }}" class="about-hero__video">
-        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_warm-optimized.jpg') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4" media="(min-width: 641px)">
       </video>
 
       <div class="about-hero__overlay"></div>
@@ -144,7 +144,7 @@
         </div>
 
         <div class="about-garden__visual reveal-garden">
-          <img src="{{ url_for('static', filename='images/garden.png') }}" alt="Садовая дорожка с каменным покрытием" loading="lazy" decoding="async">
+          <img src="{{ url_for('static', filename='images/garden-optimized.jpg') }}" alt="Садовая дорожка с каменным покрытием" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
@@ -201,7 +201,7 @@
         </div>
 
         <div class="about-story__visual reveal-story">
-          <img src="{{ url_for('static', filename='images/stone_warm.png') }}" alt="Современный фасад дома FLEX" loading="lazy" decoding="async">
+          <img src="{{ url_for('static', filename='images/stone_warm-optimized.jpg') }}" alt="Современный фасад дома FLEX" loading="lazy" decoding="async">
         </div>
 
         <div class="about-story__bottom reveal-story">

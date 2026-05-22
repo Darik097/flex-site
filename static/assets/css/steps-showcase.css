@@ -14,7 +14,7 @@
 }
 
 .steps-showcase::before {
-    background: url('../../images/fon1.png') center center / cover no-repeat;
+    background: url('../../images/fon1-optimized.jpg') center center / cover no-repeat;
     opacity: 0.44;
 }
 

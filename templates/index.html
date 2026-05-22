@@ -14,12 +14,12 @@
 <meta property="og:title" content="Каменный Ковер в Уфе | FLEX">
 <meta property="og:description" content="Укладка каменного ковра под ключ в Уфе: дворы, дорожки, террасы, фасады и интерьерные покрытия.">
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home-optimized.jpg') }}">
 <meta property="og:image:alt" content="Каменный ковер FLEX на объекте в Уфе">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Каменный Ковер в Уфе | FLEX">
 <meta name="twitter:description" content="Натуральные бесшовные покрытия и каменный ковер под ключ в Уфе и по Республике Башкортостан.">
-<meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home-optimized.jpg') }}">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
@@ -46,7 +46,7 @@
       "@id": "{{ site_url }}{{ url_for('index') }}#organization",
       "name": "FLEX",
       "description": "Каменный ковер, натуральные бесшовные покрытия, фасадные и интерьерные решения в Уфе и Республике Башкортостан.",
-      "image": "{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}",
+      "image": "{{ site_url }}{{ url_for('static', filename='images/stone_home-optimized.jpg') }}",
       "telephone": "+7-905-006-97-77",
       "email": "flex.2022@bk.ru",
       "priceRange": "$$",
@@ -147,8 +147,8 @@
     </header>
 
     <section class="hero" id="top" data-scroll-section="hero">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_home.png') }}" class="hero-video">
-        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_home-optimized.jpg') }}" class="hero-video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4" media="(min-width: 641px)">
       </video>
 
       <div class="overlay"></div>
@@ -338,11 +338,11 @@
           <div class="craft-team__ring" aria-hidden="true"></div>
 
           <figure class="craft-team__photo craft-team__photo--left">
-            <img src="{{ url_for('static', filename='images/stone_home1.png') }}" alt="Современный дом с каменной отделкой" loading="lazy" decoding="async">
+            <img src="{{ url_for('static', filename='images/stone_home1-optimized.jpg') }}" alt="Современный дом с каменной отделкой" loading="lazy" decoding="async">
           </figure>
 
           <figure class="craft-team__photo craft-team__photo--right">
-            <img src="{{ url_for('static', filename='images/stone_home2.png') }}" alt="Премиальный дом с каменной архитектурой" loading="lazy" decoding="async">
+            <img src="{{ url_for('static', filename='images/stone_home2-optimized.jpg') }}" alt="Премиальный дом с каменной архитектурой" loading="lazy" decoding="async">
           </figure>
         </div>
       </div>

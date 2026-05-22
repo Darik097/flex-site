@@ -13,7 +13,7 @@
 <meta property="og:title" content="Проекты FLEX | Каменный Ковер в Уфе">
 <meta property="og:description" content="Галерея реализованных объектов FLEX: покрытия из каменного ковра, дворы, дорожки и фасадные решения.">
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/home_project2.png') }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/home_project2-optimized.jpg') }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
@@ -99,8 +99,8 @@
     </header>
 
     <section class="about-hero">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/home_project2.png') }}" class="about-hero__video">
-        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/home_project2-optimized.jpg') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4" media="(min-width: 641px)">
       </video>
 
       <div class="about-hero__overlay"></div>
@@ -145,6 +145,69 @@
             <p class="about-stats__value about-stats__value--accent">98%</p>
             <p class="about-stats__label">Довольных клиентов</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="before-after-showcase" id="before-after-showcase">
+      <div class="before-after-showcase__inner">
+        <div class="before-after-showcase__heading">
+          <p class="before-after-showcase__eyebrow">До и после</p>
+          <h2>КАК ПРОСТРАНСТВО МЕНЯЕТСЯ ПОСЛЕ РАБОТ FLEX</h2>
+          <p>Свайпайте разделитель на карточке и сравнивайте состояние объекта до работ и после устройства покрытия.</p>
+        </div>
+
+        <div class="before-after-showcase__track">
+          {% for project in before_after_projects %}
+          <article class="before-after-card" data-before-after-card>
+            <div class="before-after-card__meta">
+              <p class="before-after-card__eyebrow">{{ project.eyebrow }}</p>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+            </div>
+
+            <div class="before-after-compare" data-before-after>
+              <div class="before-after-compare__frame">
+                <img
+                  class="before-after-compare__image before-after-compare__image--before"
+                  src="{{ url_for('static', filename=project.before_image) }}"
+                  alt="{{ project.before_alt }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+                <div class="before-after-compare__after" data-before-after-overlay>
+                  <img
+                    class="before-after-compare__image before-after-compare__image--after"
+                    src="{{ url_for('static', filename=project.after_image) }}"
+                    alt="{{ project.after_alt }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+
+                <div class="before-after-compare__labels" aria-hidden="true">
+                  <span>До</span>
+                  <span>После</span>
+                </div>
+
+                <input
+                  class="before-after-compare__range"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="54"
+                  aria-label="Сравнение до и после"
+                  data-before-after-range
+                >
+
+                <div class="before-after-compare__divider" data-before-after-divider>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -225,69 +288,6 @@
       </div>
     </section>
 
-    <section class="before-after-showcase" id="before-after-showcase">
-      <div class="before-after-showcase__inner">
-        <div class="before-after-showcase__heading">
-          <p class="before-after-showcase__eyebrow">До и после</p>
-          <h2>КАК ПРОСТРАНСТВО МЕНЯЕТСЯ ПОСЛЕ РАБОТ FLEX</h2>
-          <p>Свайпайте разделитель на карточке и сравнивайте состояние объекта до работ и после устройства покрытия.</p>
-        </div>
-
-        <div class="before-after-showcase__track">
-          {% for project in before_after_projects %}
-          <article class="before-after-card" data-before-after-card>
-            <div class="before-after-card__meta">
-              <p class="before-after-card__eyebrow">{{ project.eyebrow }}</p>
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.description }}</p>
-            </div>
-
-            <div class="before-after-compare" data-before-after>
-              <div class="before-after-compare__frame">
-                <img
-                  class="before-after-compare__image before-after-compare__image--before"
-                  src="{{ url_for('static', filename=project.before_image) }}"
-                  alt="{{ project.before_alt }}"
-                  loading="lazy"
-                  decoding="async"
-                >
-
-                <div class="before-after-compare__after" data-before-after-overlay>
-                  <img
-                    class="before-after-compare__image before-after-compare__image--after"
-                    src="{{ url_for('static', filename=project.after_image) }}"
-                    alt="{{ project.after_alt }}"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </div>
-
-                <div class="before-after-compare__labels" aria-hidden="true">
-                  <span>До</span>
-                  <span>После</span>
-                </div>
-
-                <input
-                  class="before-after-compare__range"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="54"
-                  aria-label="Сравнение до и после"
-                  data-before-after-range
-                >
-
-                <div class="before-after-compare__divider" data-before-after-divider>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-          </article>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
     <section class="catalog-links" id="catalog-links">
       <div class="catalog-links__inner">
         <p class="catalog-links__eyebrow">Популярные запросы</p>
@@ -337,7 +337,7 @@
         </div>
 
         <div class="about-story__visual reveal-story">
-          <img src="{{ url_for('static', filename='images/stone_warm.png') }}" alt="Современный фасад дома FLEX" loading="lazy" decoding="async">
+          <img src="{{ url_for('static', filename='images/stone_warm-optimized.jpg') }}" alt="Современный фасад дома FLEX" loading="lazy" decoding="async">
         </div>
 
         <div class="about-story__bottom reveal-story">

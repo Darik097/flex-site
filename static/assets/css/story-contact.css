@@ -134,7 +134,7 @@
 .contact-atelier__texture {
     background:
         linear-gradient(90deg, rgba(10,9,8,0.54) 0%, rgba(10,9,8,0.38) 32%, rgba(10,9,8,0.76) 46%, rgba(10,9,8,0.9) 100%),
-        url('../../images/stone_warm.png') center center / cover no-repeat;
+        url('../../images/stone_warm-optimized.jpg') center center / cover no-repeat;
     opacity: 0.9;
 }
 
@@ -556,7 +556,7 @@
     .contact-atelier__texture {
         background:
             linear-gradient(180deg, rgba(10,9,8,0.68) 0%, rgba(10,9,8,0.86) 100%),
-            url('../../images/stone_warm.png') center center / cover no-repeat;
+            url('../../images/stone_warm-optimized.jpg') center center / cover no-repeat;
     }
 
     .contact-atelier__phone {
