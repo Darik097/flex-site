@@ -8,6 +8,7 @@ services:
     environment:
       PORT: 8000
       FLASK_DEBUG: 0
+      SITE_URL: ${SITE_URL:-https://flex-02.online}
       STATS_DB_PATH: /app/data/analytics.sqlite3
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
       TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}

@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Технология Каменного Ковра | Этапы Укладки | FLEX</title>
 <meta name="description" content="Технология укладки каменного ковра от FLEX: подготовка основания, праймер, укладка смеси и финишная обработка для объектов в Уфе и Башкортостане.">
-<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}">
+<link rel="canonical" href="{{ canonical_url }}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="FLEX">
 <meta property="og:title" content="Технология Каменного Ковра | FLEX">
 <meta property="og:description" content="Этапы укладки каменного ковра: от подготовки основания до финишной обработки.">
-<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}">
-<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_technology.png') }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_technology.png') }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
@@ -40,7 +40,7 @@
     {
       "@type": "WebPage",
       "name": "Технология каменного ковра",
-      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}",
+      "url": "{{ site_url }}{{ url_for('technology') }}",
       "description": "Технология устройства каменного ковра и этапы выполнения работ."
     },
     {
@@ -60,13 +60,13 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Главная",
-          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+          "item": "{{ site_url }}{{ url_for('index') }}"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Технология",
-          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('technology') }}"
+          "item": "{{ site_url }}{{ url_for('technology') }}"
         }
       ]
     }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Каменный Ковер в Уфе | Укладка Каменного Ковра под Ключ | FLEX</title>
 <meta name="description" content="Каменный ковер в Уфе и по Республике Башкортостан под ключ. FLEX проектирует и выполняет бесшовные покрытия для дворов, дорожек, террас, входных групп, фасадов и интерьеров.">
-<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('index') }}">
+<link rel="canonical" href="{{ canonical_url }}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="FLEX">
 <meta property="og:type" content="website">
@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="FLEX">
 <meta property="og:title" content="Каменный Ковер в Уфе | FLEX">
 <meta property="og:description" content="Укладка каменного ковра под ключ в Уфе: дворы, дорожки, террасы, фасады и интерьерные покрытия.">
-<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('index') }}">
-<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}">
 <meta property="og:image:alt" content="Каменный ковер FLEX на объекте в Уфе">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Каменный Ковер в Уфе | FLEX">
 <meta name="twitter:description" content="Натуральные бесшовные покрытия и каменный ковер под ключ в Уфе и по Республике Башкортостан.">
-<meta name="twitter:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}">
+<meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon 2/favicon.ico') }}">
@@ -43,10 +43,10 @@
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#organization",
+      "@id": "{{ site_url }}{{ url_for('index') }}#organization",
       "name": "FLEX",
       "description": "Каменный ковер, натуральные бесшовные покрытия, фасадные и интерьерные решения в Уфе и Республике Башкортостан.",
-      "image": "{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/stone_home.png') }}",
+      "image": "{{ site_url }}{{ url_for('static', filename='images/stone_home.png') }}",
       "telephone": "+7-905-006-97-77",
       "email": "flex.2022@bk.ru",
       "priceRange": "$$",
@@ -59,12 +59,12 @@
         "addressCountry": "RU"
       },
       "areaServed": ["Уфа", "Республика Башкортостан"],
-      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+      "url": "{{ site_url }}{{ url_for('index') }}"
     },
     {
       "@type": "WebSite",
-      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#website",
-      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}",
+      "@id": "{{ site_url }}{{ url_for('index') }}#website",
+      "url": "{{ site_url }}{{ url_for('index') }}",
       "name": "FLEX",
       "inLanguage": "ru-RU"
     },
@@ -72,7 +72,7 @@
       "@type": "Service",
       "serviceType": "Укладка каменного ковра под ключ",
       "provider": {
-        "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#organization"
+        "@id": "{{ site_url }}{{ url_for('index') }}#organization"
       },
       "areaServed": ["Уфа", "Республика Башкортостан"],
       "offers": {
@@ -82,7 +82,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}#faq",
+      "@id": "{{ site_url }}{{ url_for('index') }}#faq",
       "mainEntity": [
         {
           "@type": "Question",

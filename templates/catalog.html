@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Проекты FLEX | Каменный Ковер в Уфе | Реализованные Объекты</title>
 <meta name="description" content="Реализованные проекты FLEX: дворы, дорожки, фасадные и интерьерные решения из каменного ковра в Уфе и по Республике Башкортостан.">
-<link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}">
+<link rel="canonical" href="{{ canonical_url }}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="FLEX">
 <meta property="og:title" content="Проекты FLEX | Каменный Ковер в Уфе">
 <meta property="og:description" content="Галерея реализованных объектов FLEX: покрытия из каменного ковра, дворы, дорожки и фасадные решения.">
-<meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}">
-<meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='images/home_project2.png') }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/home_project2.png') }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon 2/favicon.svg') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon 2/favicon-96x96.png') }}">
@@ -42,7 +42,7 @@
     {
       "@type": "CollectionPage",
       "name": "Проекты FLEX",
-      "url": "{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}",
+      "url": "{{ site_url }}{{ url_for('catalog') }}",
       "description": "Подборка реализованных проектов с применением каменного ковра и натуральных покрытий."
     },
     {
@@ -52,13 +52,13 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Главная",
-          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('index') }}"
+          "item": "{{ site_url }}{{ url_for('index') }}"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Проекты",
-          "item": "{{ request.url_root.rstrip('/') }}{{ url_for('catalog') }}"
+          "item": "{{ site_url }}{{ url_for('catalog') }}"
         }
       ]
     }

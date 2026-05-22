@@ -8,10 +8,12 @@ import threading
 import time
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 from urllib import error, request as urlrequest
 from zoneinfo import ZoneInfo
 
-from flask import Flask, Response, abort, jsonify, render_template, request, url_for
+from flask import Flask, Response, abort, jsonify, redirect, render_template, request, url_for
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 try:
     import certifi
@@ -19,10 +21,14 @@ except ImportError:
     certifi = None
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_port=1)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000
+app.config["PREFERRED_URL_SCHEME"] = "https"
 
 BASE_DIR = Path(app.root_path)
 STATS_DB_PATH = Path(os.getenv("STATS_DB_PATH", str(BASE_DIR / "analytics.sqlite3"))).expanduser()
+SITE_URL = os.getenv("SITE_URL", "https://flex-02.online").strip().rstrip("/")
+SITE_HOST = urlsplit(SITE_URL).netloc
 STATS_REPORT_TIME = os.getenv("STATS_REPORT_TIME", "21:00").strip()
 STATS_REPORT_TZ = os.getenv("STATS_REPORT_TZ", "Europe/Moscow").strip()
 BOT_UA_MARKERS = (
@@ -38,6 +44,26 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 TELEGRAM_DISABLE_SSL_VERIFY = os.getenv("TELEGRAM_DISABLE_SSL_VERIFY", "0").strip() == "1"
 FLASK_DEBUG = os.getenv("FLASK_DEBUG", "0").strip() == "1"
 PORT = int(os.getenv("PORT", "8000"))
+
+
+def absolute_url(path_or_url=""):
+    if not path_or_url:
+        return SITE_URL
+
+    if path_or_url.startswith(("http://", "https://")):
+        return path_or_url
+
+    path = path_or_url if path_or_url.startswith("/") else f"/{path_or_url}"
+    return f"{SITE_URL}{path}"
+
+
+@app.context_processor
+def inject_site_url():
+    return {
+        "site_url": SITE_URL,
+        "canonical_url": absolute_url(request.path),
+        "absolute_url": absolute_url,
+    }
 
 
 # Add new project dictionaries here to render more expandable blocks on /catalog.
@@ -810,11 +836,10 @@ def submit_request():
 
 @app.route("/robots.txt")
 def robots():
-    base = request.url_root.rstrip("/")
     body = "\n".join([
         "User-agent: *",
         "Allow: /",
-        f"Sitemap: {base}/sitemap.xml",
+        f"Sitemap: {SITE_URL}/sitemap.xml",
     ])
     response = Response(body, mimetype="text/plain")
     response.headers["Cache-Control"] = "public, max-age=3600"
@@ -829,20 +854,20 @@ def healthz():
 @app.route("/sitemap.xml")
 def sitemap():
     pages = [
-        (url_for("index", _external=True), page_lastmod("index.html")),
-        (url_for("catalog", _external=True), page_lastmod("catalog.html")),
-        (url_for("about", _external=True), page_lastmod("about.html")),
-        (url_for("contact", _external=True), page_lastmod("contact.html")),
-        (url_for("technology", _external=True), page_lastmod("technology.html")),
+        (absolute_url(url_for("index")), page_lastmod("index.html")),
+        (absolute_url(url_for("catalog")), page_lastmod("catalog.html")),
+        (absolute_url(url_for("about")), page_lastmod("about.html")),
+        (absolute_url(url_for("contact")), page_lastmod("contact.html")),
+        (absolute_url(url_for("technology")), page_lastmod("technology.html")),
     ]
 
     pages.extend(
-        (url_for("seo_landing", landing_slug=slug, _external=True), page_lastmod("landing.html"))
+        (absolute_url(url_for("seo_landing", landing_slug=slug)), page_lastmod("landing.html"))
         for slug in LANDING_PAGES
     )
 
     pages.extend(
-        (url_for("seo_landing", landing_slug=slug, _external=True), page_lastmod("document.html"))
+        (absolute_url(url_for("seo_landing", landing_slug=slug)), page_lastmod("document.html"))
         for slug in LEGAL_PAGES
     )
 
@@ -883,6 +908,15 @@ def ensure_stats_worker_started():
 @app.before_request
 def boot_background_workers():
     ensure_stats_worker_started()
+
+    if request.method not in {"GET", "HEAD"}:
+        return None
+
+    if request.host != SITE_HOST or not request.is_secure:
+        target = absolute_url(request.full_path if request.query_string else request.path)
+        if target.endswith("?"):
+            target = target[:-1]
+        return redirect(target, code=308)
 
 
 ensure_stats_worker_started()
