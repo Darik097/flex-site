@@ -119,11 +119,24 @@ CATALOG_PROJECTS = [
         "unit": "м²",
         "summary_lines": ["Лестница", "из премиального каменного ковра"],
         "featured_image": "images/stairs1.jpg",
-        "featured_alt": "Лестницаиз каменного ковра",
+        "featured_alt": "Лестница из каменного ковра",
         "gallery": [
             {"src": "images/stairs1.jpg", "alt": "Лестница с покрытием из каменного ковра"},
             {"src": "images/stairs2.jpg", "alt": "Входная группа с декоративным каменным покрытием"},
             {"src": "images/stairs3.jpg", "alt": "Крыльцо и ступени с премиальной каменной фактурой"}
+        ],
+    },
+    {
+        "slug": "carpet-object-collection",
+        "area": "3",
+        "unit": "фото",
+        "summary_lines": ["Каменный ковер", "на новом объекте"],
+        "featured_image": "images/carpet1-project1.jpg",
+        "featured_alt": "Новый объект с покрытием из каменного ковра",
+        "gallery": [
+            {"src": "images/carpet1-project1.jpg", "alt": "Фрагмент нового объекта с каменным ковром"},
+            {"src": "images/carpet1-project2.jpg", "alt": "Деталь покрытия из каменного ковра на объекте"},
+            {"src": "images/carpet1_project3.jpg", "alt": "Общий вид объекта с покрытием из каменного ковра"},
         ],
     },
 ]
@@ -151,13 +164,13 @@ CATALOG_BEFORE_AFTER_PROJECTS = [
     },
     {
         "slug": "pathway-compare",
-        "eyebrow": "Дорожки",
-        "title": "Маршруты и примыкания",
-        "description": "До и после переосмысления дорожек и переходов в едином декоративном покрытии.",
-        "before_image": "images/stone_project2.png",
-        "before_alt": "Зона дорожек до обновления покрытия",
-        "after_image": "images/stone_home2.png",
-        "after_alt": "Зона дорожек после обновления покрытия",
+        "eyebrow": "Новый объект",
+        "title": "Преображение покрытия на участке",
+        "description": "До и после устройства каменного ковра: аккуратная фактура, ровная геометрия и цельный внешний вид пространства.",
+        "before_image": "images/carpet1_project4_before.jpg",
+        "before_alt": "Объект до устройства каменного ковра",
+        "after_image": "images/carpet1_project4_after.jpg",
+        "after_alt": "Объект после устройства каменного ковра",
     },
 ]
 
