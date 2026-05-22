@@ -29,6 +29,7 @@ BASE_DIR = Path(app.root_path)
 STATS_DB_PATH = Path(os.getenv("STATS_DB_PATH", str(BASE_DIR / "analytics.sqlite3"))).expanduser()
 SITE_URL = os.getenv("SITE_URL", "https://flex-02.online").strip().rstrip("/")
 SITE_HOST = urlsplit(SITE_URL).netloc
+LOCAL_HOSTS = {"localhost", "127.0.0.1", "0.0.0.0"}
 STATS_REPORT_TIME = os.getenv("STATS_REPORT_TIME", "21:00").strip()
 STATS_REPORT_TZ = os.getenv("STATS_REPORT_TZ", "Europe/Moscow").strip()
 BOT_UA_MARKERS = (
@@ -55,6 +56,11 @@ def absolute_url(path_or_url=""):
 
     path = path_or_url if path_or_url.startswith("/") else f"/{path_or_url}"
     return f"{SITE_URL}{path}"
+
+
+def is_local_request():
+    hostname = (request.host or "").split(":", 1)[0]
+    return hostname in LOCAL_HOSTS
 
 
 @app.context_processor
@@ -921,6 +927,9 @@ def boot_background_workers():
     ensure_stats_worker_started()
 
     if request.method not in {"GET", "HEAD"}:
+        return None
+
+    if is_local_request():
         return None
 
     if request.host != SITE_HOST or not request.is_secure:
