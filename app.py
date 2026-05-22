@@ -47,27 +47,52 @@ FLASK_DEBUG = os.getenv("FLASK_DEBUG", "0").strip() == "1"
 PORT = int(os.getenv("PORT", "8000"))
 
 
-def absolute_url(path_or_url=""):
-    if not path_or_url:
+def normalized_hostname(host):
+    return (host or "").split(":", 1)[0].strip().lower()
+
+
+def original_request_host():
+    proxy_orig = request.environ.get("werkzeug.proxy_fix.orig") or {}
+    return proxy_orig.get("HTTP_HOST") or request.environ.get("HTTP_HOST") or request.host
+
+
+def local_site_url():
+    host = original_request_host()
+    if not host:
         return SITE_URL
+    return f"http://{host.strip().rstrip('/')}"
+
+
+def absolute_url(path_or_url="", base_url=None):
+    base_url = (base_url or SITE_URL).strip().rstrip("/")
+
+    if not path_or_url:
+        return base_url
 
     if path_or_url.startswith(("http://", "https://")):
         return path_or_url
 
     path = path_or_url if path_or_url.startswith("/") else f"/{path_or_url}"
-    return f"{SITE_URL}{path}"
+    return f"{base_url}{path}"
 
 
 def is_local_request():
-    hostname = (request.host or "").split(":", 1)[0]
-    return hostname in LOCAL_HOSTS
+    hosts = [
+        request.host,
+        request.environ.get("HTTP_HOST"),
+    ]
+    proxy_orig = request.environ.get("werkzeug.proxy_fix.orig") or {}
+    hosts.append(proxy_orig.get("HTTP_HOST"))
+
+    return any(normalized_hostname(host) in LOCAL_HOSTS for host in hosts)
 
 
 @app.context_processor
 def inject_site_url():
+    active_site_url = local_site_url() if is_local_request() else SITE_URL
     return {
-        "site_url": SITE_URL,
-        "canonical_url": absolute_url(request.path),
+        "site_url": active_site_url,
+        "canonical_url": absolute_url(request.path, active_site_url),
         "absolute_url": absolute_url,
     }
 
@@ -83,9 +108,6 @@ CATALOG_PROJECTS = [
         "featured_alt": "Современный двор с каменным покрытием",
         "gallery": [
             {"src": "images/stone_home-optimized.jpg", "alt": "Современный двор с каменным покрытием"},
-            {"src": "images/stone_project1.png", "alt": "Фрагмент фасада с каменной текстурой"},
-            {"src": "images/stone_project2.png", "alt": "Фактура покрытия у двери"},
-            {"src": "images/stone_project4.png", "alt": "Светлый фасад с декоративной отделкой"},
         ],
     },
     {
@@ -96,10 +118,7 @@ CATALOG_PROJECTS = [
         "featured_image": "images/home_project2-optimized.jpg",
         "featured_alt": "Площадка перед домом с каменным покрытием",
         "gallery": [
-            {"src": "images/home_project2-optimized.jpg", "alt": "Вечерний экстерьер дома"},
-            {"src": "images/stone_home1-optimized.jpg", "alt": "Белый дом с каменным покрытием"},
-            {"src": "images/stone_home2-optimized.jpg", "alt": "Дорожки из декоративного каменного ковра"},
-            {"src": "images/stone_warm-optimized.jpg", "alt": "Тёплый фасад дома с архитектурной подсветкой"},
+            {"src": "images/home_project2-optimized.jpg", "alt": "Площадка перед домом с каменным покрытием"},
         ],
     },
 
@@ -108,11 +127,9 @@ CATALOG_PROJECTS = [
         "area": "363",
         "unit": "м²",
         "summary_lines": ["Дорожки", "из декоративного каменного ковра"],
-        "featured_image": "images/home_project1.png",
+        "featured_image": "images/garden-optimized.jpg",
         "featured_alt": "Дорожки из декоративного каменного ковра",
         "gallery": [
-            {"src": "images/home_project1.png", "alt": "Дорожки из декоративного каменного ковра"},
-            {"src": "images/stone_home2-optimized.jpg", "alt": "Дорожки из декоративного каменного ковра"},
             {"src": "images/garden-optimized.jpg", "alt": "Садовая зона с декоративным каменным покрытием"},
         ],
     },
@@ -905,7 +922,9 @@ def sitemap():
 
 @app.after_request
 def apply_cache_headers(response):
-    if request.path.startswith("/static/") and response.status_code == 200:
+    if is_local_request() and response.status_code == 200:
+        response.headers["Cache-Control"] = "no-store"
+    elif request.path.startswith("/static/") and response.status_code == 200:
         response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
     elif response.mimetype == "text/html" and response.status_code == 200:
         response.headers["Cache-Control"] = "public, max-age=300"

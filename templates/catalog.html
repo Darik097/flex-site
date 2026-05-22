@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-stats.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/catalog-projects.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/catalog-projects.css') }}?v=2">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-story.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/request-modal.css') }}">
@@ -169,18 +169,18 @@
             <div class="before-after-compare" data-before-after>
               <div class="before-after-compare__frame">
                 <img
-                  class="before-after-compare__image before-after-compare__image--before"
-                  src="{{ url_for('static', filename=project.before_image) }}"
-                  alt="{{ project.before_alt }}"
+                  class="before-after-compare__image before-after-compare__image--after"
+                  src="{{ url_for('static', filename=project.after_image) }}"
+                  alt="{{ project.after_alt }}"
                   loading="lazy"
                   decoding="async"
                 >
 
-                <div class="before-after-compare__after" data-before-after-overlay>
+                <div class="before-after-compare__before" data-before-after-overlay>
                   <img
-                    class="before-after-compare__image before-after-compare__image--after"
-                    src="{{ url_for('static', filename=project.after_image) }}"
-                    alt="{{ project.after_alt }}"
+                    class="before-after-compare__image before-after-compare__image--before"
+                    src="{{ url_for('static', filename=project.before_image) }}"
+                    alt="{{ project.before_alt }}"
                     loading="lazy"
                     decoding="async"
                   >

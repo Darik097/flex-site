@@ -470,7 +470,7 @@
 }
 
 .before-after-compare__image,
-.before-after-compare__after {
+.before-after-compare__before {
     position: absolute;
     inset: 0;
 }
@@ -482,12 +482,12 @@
     object-fit: cover;
 }
 
-.before-after-compare__after {
+.before-after-compare__before {
     width: 54%;
     overflow: hidden;
 }
 
-.before-after-compare__image--after {
+.before-after-compare__image--before {
     width: 100%;
     max-width: none;
 }
