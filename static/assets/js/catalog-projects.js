@@ -454,7 +454,71 @@ document.querySelectorAll("[data-before-after]").forEach((compare) => {
         divider.style.left = value;
     };
 
+    const setCompareFromClientX = (clientX) => {
+        const rect = compare.getBoundingClientRect();
+        const position = ((clientX - rect.left) / rect.width) * 100;
+        range.value = Math.min(100, Math.max(0, position)).toFixed(2);
+        syncCompare();
+    };
+
+    const setCompareFromPointer = (event) => {
+        setCompareFromClientX(event.clientX);
+    };
+
+    const setCompareFromTouch = (event) => {
+        const touch = event.touches[0] || event.changedTouches[0];
+
+        if (!touch) {
+            return;
+        }
+
+        event.preventDefault();
+        setCompareFromClientX(touch.clientX);
+    };
+
+    let isMouseDragging = false;
+
     range.addEventListener("input", syncCompare);
+    compare.addEventListener("pointerdown", (event) => {
+        setCompareFromPointer(event);
+        if (compare.setPointerCapture) {
+            compare.setPointerCapture(event.pointerId);
+        }
+    });
+    compare.addEventListener("pointermove", (event) => {
+        if (compare.hasPointerCapture && !compare.hasPointerCapture(event.pointerId)) {
+            return;
+        }
+
+        setCompareFromPointer(event);
+    });
+    compare.addEventListener("pointerup", (event) => {
+        if (compare.hasPointerCapture && compare.hasPointerCapture(event.pointerId)) {
+            compare.releasePointerCapture(event.pointerId);
+        }
+    });
+    compare.addEventListener("pointercancel", (event) => {
+        if (compare.hasPointerCapture && compare.hasPointerCapture(event.pointerId)) {
+            compare.releasePointerCapture(event.pointerId);
+        }
+    });
+    compare.addEventListener("touchstart", setCompareFromTouch, { passive: false });
+    compare.addEventListener("touchmove", setCompareFromTouch, { passive: false });
+    compare.addEventListener("click", setCompareFromPointer);
+    compare.addEventListener("mousedown", (event) => {
+        isMouseDragging = true;
+        setCompareFromPointer(event);
+    });
+    window.addEventListener("mousemove", (event) => {
+        if (!isMouseDragging) {
+            return;
+        }
+
+        setCompareFromPointer(event);
+    });
+    window.addEventListener("mouseup", () => {
+        isMouseDragging = false;
+    });
     syncCompare();
 });
 

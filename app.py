@@ -156,16 +156,17 @@ CATALOG_PROJECTS = [
         ],
     },
     {
-        "slug": "carpet-object-collection",
+        "slug": "private-house-entrance-96",
         "area": "96",
         "unit": "м²",
-        "summary_lines": ["Каменный ковер", "на новом объекте"],
-        "featured_image": "images/carpet1-project1.jpg",
-        "featured_alt": "Новый объект с покрытием из каменного ковра",
+        "summary_lines": ["Входная группа", "частного дома"],
+        "featured_image": "images/project5.jpg",
+        "featured_alt": "Крыльцо частного дома с покрытием из каменного ковра",
         "gallery": [
-            {"src": "images/carpet1-project1.jpg", "alt": "Фрагмент нового объекта с каменным ковром"},
-            {"src": "images/carpet1-project2.jpg", "alt": "Деталь покрытия из каменного ковра на объекте"},
-            {"src": "images/carpet1_project3.jpg", "alt": "Общий вид объекта с покрытием из каменного ковра"},
+            {"src": "images/project5.jpg", "alt": "Крыльцо частного дома с темным каменным ковром"},
+            {"src": "images/project5_3.jpg", "alt": "Входная группа с покрытием из каменного ковра"},
+            {"src": "images/project5_2.jpg", "alt": "Фактура каменного ковра у стены дома"},
+            {"src": "images/project5_1.jpg", "alt": "Зона отдыха с декоративной отделкой каменным ковром"},
         ],
     },
 ]
@@ -200,6 +201,16 @@ CATALOG_BEFORE_AFTER_PROJECTS = [
         "before_alt": "Объект до устройства каменного ковра",
         "after_image": "images/carpet1_project4_after.jpg",
         "after_alt": "Объект после устройства каменного ковра",
+    },
+    {
+        "slug": "private-house-entrance-compare",
+        "eyebrow": "Крыльцо частного дома",
+        "title": "Входная группа с темным каменным ковром",
+        "description": "Бетонное основание крыльца и ступеней закрыли износостойким каменным ковром: входная зона стала аккуратной, цельной и удобной для ежедневной эксплуатации.",
+        "before_image": "images/project5_before1.jpg",
+        "before_alt": "Крыльцо частного дома до устройства каменного ковра",
+        "after_image": "images/project5_after1.jpg",
+        "after_alt": "Крыльцо частного дома после устройства каменного ковра",
     },
 ]
 
