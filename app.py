@@ -33,11 +33,18 @@ CANONICAL_REDIRECTS = os.getenv("CANONICAL_REDIRECTS", "1" if os.getenv("SITE_UR
 LOCAL_HOSTS = {"localhost", "127.0.0.1", "0.0.0.0"}
 STATS_REPORT_TIME = os.getenv("STATS_REPORT_TIME", "21:00").strip()
 STATS_REPORT_TZ = os.getenv("STATS_REPORT_TZ", "Europe/Moscow").strip()
+SITE_MONITOR_ENABLED = os.getenv("SITE_MONITOR_ENABLED", "1").strip() == "1"
+SITE_MONITOR_URLS = [
+    url.strip()
+    for url in os.getenv("SITE_MONITOR_URLS", f"{SITE_URL}/,{SITE_URL}/healthz").split(",")
+    if url.strip()
+]
 BOT_UA_MARKERS = (
     "bot", "crawler", "spider", "preview", "headless", "python-requests",
     "curl", "wget", "uptime", "monitor", "checker", "lighthouse"
 )
 stats_worker_lock = threading.Lock()
+site_monitor_lock = threading.Lock()
 request_dedupe_lock = threading.Lock()
 recent_request_fingerprints = {}
 
@@ -46,6 +53,18 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 TELEGRAM_DISABLE_SSL_VERIFY = os.getenv("TELEGRAM_DISABLE_SSL_VERIFY", "0").strip() == "1"
 FLASK_DEBUG = os.getenv("FLASK_DEBUG", "0").strip() == "1"
 PORT = int(os.getenv("PORT", "8000"))
+
+
+def env_int(name, default, minimum):
+    try:
+        return max(minimum, int(os.getenv(name, str(default))))
+    except ValueError:
+        return default
+
+
+SITE_MONITOR_INTERVAL = env_int("SITE_MONITOR_INTERVAL", 300, 60)
+SITE_MONITOR_TIMEOUT = env_int("SITE_MONITOR_TIMEOUT", 15, 3)
+SITE_MONITOR_FAILURE_THRESHOLD = env_int("SITE_MONITOR_FAILURE_THRESHOLD", 2, 1)
 
 
 def normalized_hostname(host):
@@ -521,6 +540,124 @@ def stats_report_worker():
         time.sleep(60)
 
 
+def check_site_url(url):
+    started_at = time.monotonic()
+    req = urlrequest.Request(
+        url,
+        headers={"User-Agent": "FLEX site monitor"},
+        method="GET",
+    )
+
+    ssl_context = None
+
+    if certifi is not None:
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+
+    with urlrequest.urlopen(req, timeout=SITE_MONITOR_TIMEOUT, context=ssl_context) as response:
+        status_code = response.getcode()
+        response.read(512)
+
+    elapsed = time.monotonic() - started_at
+
+    if status_code < 200 or status_code >= 400:
+        raise RuntimeError(f"{url} вернул HTTP {status_code}")
+
+    return elapsed
+
+
+def collect_missing_static_assets():
+    referenced_assets = []
+
+    for project in CATALOG_PROJECTS:
+        referenced_assets.append(project["featured_image"])
+        referenced_assets.extend(image["src"] for image in project["gallery"])
+
+    for project in CATALOG_BEFORE_AFTER_PROJECTS:
+        referenced_assets.append(project["before_image"])
+        referenced_assets.append(project["after_image"])
+
+    for page in LANDING_PAGES.values():
+        referenced_assets.append(page["hero_image"])
+
+    missing_assets = []
+    static_root = BASE_DIR / "static"
+
+    for asset in sorted(set(referenced_assets)):
+        if not (static_root / asset).exists():
+            missing_assets.append(asset)
+
+    return missing_assets
+
+
+def build_site_alert_message(status, details):
+    now_label = datetime.now(ZoneInfo(STATS_REPORT_TZ)).strftime("%d.%m.%Y %H:%M:%S")
+    lines = [
+        f"FLEX сайт: {status}",
+        f"Время: {now_label} ({STATS_REPORT_TZ})",
+        f"Домен: {SITE_URL}",
+        "",
+        details,
+    ]
+    return "\n".join(lines)
+
+
+def notify_site_down(details):
+    if get_meta_value("site_monitor_status") == "down":
+        return
+
+    send_telegram_message(build_site_alert_message("ПРОБЛЕМА", details))
+    set_meta_value("site_monitor_status", "down")
+    set_meta_value("site_monitor_last_down_at", datetime.utcnow().isoformat(timespec="seconds"))
+
+
+def notify_site_recovered(details):
+    if get_meta_value("site_monitor_status") != "down":
+        set_meta_value("site_monitor_status", "up")
+        return
+
+    send_telegram_message(build_site_alert_message("ВОССТАНОВЛЕН", details))
+    set_meta_value("site_monitor_status", "up")
+    set_meta_value("site_monitor_last_up_at", datetime.utcnow().isoformat(timespec="seconds"))
+
+
+def site_monitor_worker():
+    failures_count = 0
+    last_error = ""
+
+    while True:
+        try:
+            results = []
+            for url in SITE_MONITOR_URLS:
+                elapsed = check_site_url(url)
+                results.append(f"{url}: OK за {elapsed:.2f} сек.")
+
+            missing_assets = collect_missing_static_assets()
+            if missing_assets:
+                raise RuntimeError("Не найдены статические файлы: " + ", ".join(missing_assets))
+
+            failures_count = 0
+            last_error = ""
+            notify_site_recovered("\n".join(results))
+        except Exception as exc:
+            failures_count += 1
+            last_error = str(exc)
+            app.logger.exception("Site monitor check failed")
+
+            if failures_count >= SITE_MONITOR_FAILURE_THRESHOLD:
+                details = "\n".join([
+                    f"Проверка не прошла {failures_count} раз(а) подряд.",
+                    f"Ошибка: {last_error}",
+                    f"Проверяемые URL: {', '.join(SITE_MONITOR_URLS)}",
+                    f"Таймаут: {SITE_MONITOR_TIMEOUT} сек.",
+                ])
+                try:
+                    notify_site_down(details)
+                except Exception:
+                    app.logger.exception("Failed to send site monitor alert")
+
+        time.sleep(SITE_MONITOR_INTERVAL)
+
+
 init_stats_db()
 
 LANDING_PAGES = {
@@ -952,12 +1089,26 @@ def apply_cache_headers(response):
 
 
 def ensure_stats_worker_started():
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+
     with stats_worker_lock:
         if getattr(app, "_stats_worker_started", False):
+            pass
+        else:
+            stats_thread = threading.Thread(target=stats_report_worker, daemon=True)
+            stats_thread.start()
+            app._stats_worker_started = True
+
+    if not SITE_MONITOR_ENABLED or not SITE_MONITOR_URLS:
+        return
+
+    with site_monitor_lock:
+        if getattr(app, "_site_monitor_started", False):
             return
-        stats_thread = threading.Thread(target=stats_report_worker, daemon=True)
+        stats_thread = threading.Thread(target=site_monitor_worker, daemon=True)
         stats_thread.start()
-        app._stats_worker_started = True
+        app._site_monitor_started = True
 
 
 @app.before_request
