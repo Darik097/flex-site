@@ -27,7 +27,7 @@ app.config["PREFERRED_URL_SCHEME"] = "https"
 
 BASE_DIR = Path(app.root_path)
 STATS_DB_PATH = Path(os.getenv("STATS_DB_PATH", str(BASE_DIR / "analytics.sqlite3"))).expanduser()
-SITE_URL = os.getenv("SITE_URL", "https://flex-02.online").strip().rstrip("/")
+SITE_URL = os.getenv("SITE_URL", "https://flexpro02.ru").strip().rstrip("/")
 SITE_HOST = urlsplit(SITE_URL).netloc
 CANONICAL_REDIRECTS = os.getenv("CANONICAL_REDIRECTS", "1" if os.getenv("SITE_URL") else "0").strip() == "1"
 LOCAL_HOSTS = {"localhost", "127.0.0.1", "0.0.0.0"}

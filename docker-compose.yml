@@ -8,7 +8,7 @@ services:
     environment:
       PORT: 8000
       FLASK_DEBUG: 0
-      SITE_URL: ${SITE_URL:-https://flex-02.online}
+      SITE_URL: ${SITE_URL:-https://flexpro02.ru}
       STATS_DB_PATH: /app/data/analytics.sqlite3
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
       TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
@@ -17,3 +17,9 @@ services:
       STATS_REPORT_TZ: ${STATS_REPORT_TZ:-Europe/Moscow}
     volumes:
       - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s

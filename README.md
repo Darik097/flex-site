@@ -4,7 +4,6 @@ Flask-сайт компании FLEX с лендингом, страницами
 
 ## SEO and Canonical Host
 
-- Основной домен сайта: `https://flex-02.online`
-- Для production обязательно задайте `SITE_URL=https://flex-02.online`
+- Основной домен сайта: `https://flexpro02.ru`
+- Для production обязательно задайте `SITE_URL=https://flexpro02.ru`
 - Все canonical URL, `robots.txt` и `sitemap.xml` должны строиться только от этого домена
-
