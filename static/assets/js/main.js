@@ -5,11 +5,27 @@ const hero = document.querySelector(".hero");
 const startBackgroundVideos = () => {
     document.querySelectorAll(".hero-video, .about-hero__video").forEach((video) => {
         video.muted = true;
+        video.defaultMuted = true;
         video.playsInline = true;
+
+        const markPlaying = () => {
+            if (!video.paused && !video.ended) {
+                video.classList.add("is-playing");
+            }
+        };
+
+        const markStopped = () => {
+            video.classList.remove("is-playing");
+        };
+
+        video.addEventListener("playing", markPlaying);
+        video.addEventListener("timeupdate", markPlaying, { once: true });
+        video.addEventListener("pause", markStopped);
+        video.addEventListener("error", markStopped);
 
         const playAttempt = video.play();
         if (playAttempt && typeof playAttempt.catch === "function") {
-            playAttempt.catch(() => {});
+            playAttempt.then(markPlaying).catch(markStopped);
         }
     });
 };

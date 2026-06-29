@@ -3,7 +3,7 @@
     min-height: 100vh;
     min-height: 100svh;
     overflow: hidden;
-    background: #080808;
+    background: #080808 var(--hero-poster, none) center center / cover no-repeat;
 }
 
 .about-hero__video,
@@ -19,7 +19,15 @@
     object-fit: cover;
     transform: scale(1.04);
     filter: saturate(0.72) brightness(0.58) contrast(0.96);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .28s ease, visibility .28s ease;
     pointer-events: none;
+}
+
+.about-hero__video.is-playing {
+    opacity: 1;
+    visibility: visible;
 }
 
 .about-hero__video::-webkit-media-controls,

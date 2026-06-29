@@ -4,11 +4,27 @@ const aboutHeroVideo = aboutHero ? aboutHero.querySelector(".about-hero__video")
 
 if (aboutHeroVideo) {
     aboutHeroVideo.muted = true;
+    aboutHeroVideo.defaultMuted = true;
     aboutHeroVideo.playsInline = true;
+
+    const markAboutHeroVideoPlaying = () => {
+        if (!aboutHeroVideo.paused && !aboutHeroVideo.ended) {
+            aboutHeroVideo.classList.add("is-playing");
+        }
+    };
+
+    const markAboutHeroVideoStopped = () => {
+        aboutHeroVideo.classList.remove("is-playing");
+    };
+
+    aboutHeroVideo.addEventListener("playing", markAboutHeroVideoPlaying);
+    aboutHeroVideo.addEventListener("timeupdate", markAboutHeroVideoPlaying, { once: true });
+    aboutHeroVideo.addEventListener("pause", markAboutHeroVideoStopped);
+    aboutHeroVideo.addEventListener("error", markAboutHeroVideoStopped);
 
     const playAttempt = aboutHeroVideo.play();
     if (playAttempt && typeof playAttempt.catch === "function") {
-        playAttempt.catch(() => {});
+        playAttempt.then(markAboutHeroVideoPlaying).catch(markAboutHeroVideoStopped);
     }
 }
 
