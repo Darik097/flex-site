@@ -23,7 +23,7 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-hero.css') }}?v=2">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/about-stats.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/catalog-projects.css') }}?v=3">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
@@ -95,8 +95,8 @@
     </header>
 
     <section class="about-hero">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/home_project2-optimized.jpg') }}" class="about-hero__video">
-        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4" media="(min-width: 641px)">
+      <video autoplay muted loop playsinline preload="auto" poster="{{ url_for('static', filename='images/home_project2-optimized.jpg') }}" class="about-hero__video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
       </video>
 
       <div class="about-hero__overlay"></div>
@@ -397,7 +397,7 @@
     {% include '_request_modal.html' %}
 
     <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='assets/js/about-hero.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/about-hero.js') }}?v=2" defer></script>
     <script src="{{ url_for('static', filename='assets/js/about-stats.js') }}" defer></script>
     <script src="{{ url_for('static', filename='assets/js/catalog-projects.js') }}?v=2" defer></script>
     <script src="{{ url_for('static', filename='assets/js/about-story.js') }}" defer></script>

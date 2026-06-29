@@ -19,6 +19,15 @@
     object-fit: cover;
     transform: scale(1.04);
     filter: saturate(0.72) brightness(0.58) contrast(0.96);
+    pointer-events: none;
+}
+
+.about-hero__video::-webkit-media-controls,
+.about-hero__video::-webkit-media-controls-panel,
+.about-hero__video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none;
 }
 
 .about-hero__overlay {

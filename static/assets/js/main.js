@@ -2,6 +2,18 @@ const dots = document.querySelectorAll(".dot");
 const scrollSections = document.querySelectorAll("[data-scroll-section]");
 const hero = document.querySelector(".hero");
 
+const startBackgroundVideos = () => {
+    document.querySelectorAll(".hero-video, .about-hero__video").forEach((video) => {
+        video.muted = true;
+        video.playsInline = true;
+
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(() => {});
+        }
+    });
+};
+
 const updateScrollScenes = () => {
     const viewportHeight = window.innerHeight || 1;
     const documentHeight = Math.max(document.body.scrollHeight - viewportHeight, 1);
@@ -755,6 +767,7 @@ const initSeoSectionAnimations = () => {
     });
 };
 
+startBackgroundVideos();
 bindDotHover();
 bindAnchorScroll();
 updateScrollScenes();

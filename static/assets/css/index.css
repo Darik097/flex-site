@@ -218,6 +218,15 @@ html {
     object-position: center center;
     transform: scale(calc(1.02 + (var(--section-progress, 0) * 0.08)));
     transition: transform .2s linear;
+    pointer-events: none;
+}
+
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none;
 }
 
 .overlay {

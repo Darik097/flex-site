@@ -1,10 +1,21 @@
 const aboutHero = document.querySelector(".about-hero");
 const aboutHeroHeadline = document.querySelector(".about-hero__headline");
+const aboutHeroVideo = aboutHero ? aboutHero.querySelector(".about-hero__video") : null;
+
+if (aboutHeroVideo) {
+    aboutHeroVideo.muted = true;
+    aboutHeroVideo.playsInline = true;
+
+    const playAttempt = aboutHeroVideo.play();
+    if (playAttempt && typeof playAttempt.catch === "function") {
+        playAttempt.catch(() => {});
+    }
+}
 
 if (aboutHero && aboutHeroHeadline && window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const gsap = window.gsap;
     const ScrollTrigger = window.ScrollTrigger;
-    const video = aboutHero.querySelector(".about-hero__video");
+    const video = aboutHeroVideo;
     const overlay = aboutHero.querySelector(".about-hero__overlay");
     const mist = aboutHero.querySelector(".about-hero__mist");
     const title = aboutHero.querySelector(".about-hero__title");

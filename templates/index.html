@@ -27,7 +27,7 @@
 <link rel="manifest" href="{{ url_for('static', filename='favicon 2/site.webmanifest') }}">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/common.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/index.css') }}?v=4">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/stone-carpet.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/steps-showcase.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/story-contact.css') }}">
@@ -143,8 +143,8 @@
     </header>
 
     <section class="hero" id="top" data-scroll-section="hero">
-      <video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename='images/stone_home-optimized.jpg') }}" class="hero-video">
-        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4" media="(min-width: 641px)">
+      <video autoplay muted loop playsinline preload="auto" poster="{{ url_for('static', filename='images/stone_home-optimized.jpg') }}" class="hero-video">
+        <source src="{{ url_for('static', filename='images/video.mp4') }}" type="video/mp4">
       </video>
 
       <div class="overlay"></div>
@@ -515,7 +515,7 @@
     </footer>
     {% include '_request_modal.html' %}
     <script src="{{ url_for('static', filename='assets/js/header-menu.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='assets/js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}?v=2" defer></script>
     <script src="{{ url_for('static', filename='assets/js/stone-carpet.js') }}" defer></script>
     <script src="{{ url_for('static', filename='assets/js/request-modal.js') }}" defer></script>
     <script src="{{ url_for('static', filename='assets/js/visit-tracker.js') }}" defer></script>
