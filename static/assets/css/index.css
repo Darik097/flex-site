@@ -1,18 +1,21 @@
 @font-face {
     font-family: 'Cygre';
     src: url('../../fonts/Cygre-Light.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Space Grotesk Local';
     src: url('../../fonts/SpaceGrotesk-Light.ttf');
     font-weight: 300;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Space Grotesk Local';
     src: url('../../fonts/SpaceGrotesk.ttf');
     font-weight: 400;
+    font-display: swap;
 }
 
 * {
@@ -22,7 +25,7 @@
 }
 
 body {
-    font-family: 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk Local', Arial, sans-serif;
     background: #000;
     color: #fff;
     overflow-x: hidden;
@@ -302,7 +305,7 @@ html {
 }
 
 .hero-left h1 {
-    font-family: 'Cygre', 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Cygre', 'Space Grotesk Local', Arial, sans-serif;
     font-size: clamp(38px, 4.4vw, 58px);
     line-height: 1.03;
     font-weight: 300;
@@ -312,7 +315,7 @@ html {
 }
 
 .hero-title-line--secondary {
-    font-family: 'Cygre', 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Cygre', 'Space Grotesk Local', Arial, sans-serif;
     font-size: clamp(18px, 2.1vw, 28px);
     line-height: 1.08;
     font-weight: 300;
@@ -325,7 +328,7 @@ html {
 .hero-copy {
     margin-top: 30px;
     max-width: 620px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: 16px;
     line-height: 1.45;
     color: rgba(255,255,255,0.82);
@@ -381,7 +384,7 @@ html {
 }
 
 .hero-right h2 {
-    font-family: 'Cygre', 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Cygre', 'Space Grotesk Local', Arial, sans-serif;
     font-size: clamp(16px, 2.4vw, 24px);
     font-weight: 300;
     line-height: 1.1;
@@ -392,7 +395,7 @@ html {
 }
 
 .hero-right p {
-    font-family: 'Cygre', 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Cygre', 'Space Grotesk Local', Arial, sans-serif;
     font-size: clamp(16px, 2.4vw, 24px);
     line-height: 1.15;
     font-weight: 300;
@@ -495,7 +498,7 @@ html {
 .seo-zones__copy h2,
 .seo-faq__intro h2,
 .seo-doc__inner h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: clamp(34px, 4vw, 54px);
     line-height: 0.98;
     font-weight: 400;
@@ -675,7 +678,7 @@ html {
 .seo-landing-hero h1,
 .seo-cluster__inner h2 {
     max-width: 880px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: clamp(40px, 5.2vw, 72px);
     line-height: 0.96;
     font-weight: 400;

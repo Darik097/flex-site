@@ -1,18 +1,21 @@
 @font-face {
     font-family: 'Cygre';
     src: url('../../fonts/Cygre-Light.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Space Grotesk Local';
     src: url('../../fonts/SpaceGrotesk-Light.ttf');
     font-weight: 300;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Space Grotesk Local';
     src: url('../../fonts/SpaceGrotesk.ttf');
     font-weight: 400;
+    font-display: swap;
 }
 
 * {
@@ -26,7 +29,7 @@ html {
 }
 
 body {
-    font-family: 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk Local', Arial, sans-serif;
     background: #000;
     color: #fff;
     overflow-x: hidden;

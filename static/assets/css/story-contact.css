@@ -32,7 +32,7 @@
 }
 
 .craft-team__copy h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: clamp(48px, 4.6vw, 52px);
     line-height: 1.02;
     font-weight: 400;
@@ -174,7 +174,7 @@
 }
 
 .contact-atelier__panel h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     max-width: 440px;
     font-size: clamp(34px, 3.5vw, 48px);
     line-height: 0.98;
@@ -190,7 +190,7 @@
 .contact-atelier__phone {
     display: inline-block;
     margin-bottom: 12px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: clamp(23px, 2.2vw, 33px);
     line-height: 1.05;
     color: #dcc09c;
@@ -218,7 +218,7 @@
 }
 
 .contact-atelier__divider p {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cygre', Georgia, serif;
     font-size: 18px;
     color: rgba(255,255,255,0.94);
     text-transform: uppercase;
@@ -250,7 +250,7 @@
     padding: 0 0 10px;
     color: #fff;
     font-size: 17px;
-    font-family: 'Space Grotesk Local', 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk Local', Arial, sans-serif;
     outline: none;
 }
 
