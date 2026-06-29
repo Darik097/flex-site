@@ -27,8 +27,6 @@ sudo systemctl reload nginx
 Issue the certificate after DNS points to the server:
 
 ```bash
-sudo mkdir -p /var/cache/nginx/flex_static
-sudo chown -R www-data:www-data /var/cache/nginx/flex_static || sudo chown -R nginx:nginx /var/cache/nginx/flex_static
 sudo certbot certonly --webroot -w /var/www/certbot -d flexpro02.ru -d www.flexpro02.ru
 sudo cp deploy/nginx/flexpro02.ru.conf /etc/nginx/sites-available/flexpro02.ru.conf
 sudo nginx -t
@@ -43,6 +41,7 @@ curl -I https://flexpro02.ru/
 curl -I https://flexpro02.ru/healthz
 curl -I https://flexpro02.ru/static/assets/css/index.css
 curl -s https://flexpro02.ru/ | grep -E "fonts.googleapis|cdn.jsdelivr|flex-02" || true
+sudo nginx -T | grep -n "server_name flexpro02.ru" -A 5
 docker compose ps
 docker compose logs --tail=100 web
 ```
