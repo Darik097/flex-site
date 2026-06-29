@@ -41,7 +41,8 @@ curl -I https://flexpro02.ru/
 curl -I https://flexpro02.ru/healthz
 curl -I https://flexpro02.ru/static/assets/css/index.css
 curl -s https://flexpro02.ru/ | grep -E "fonts.googleapis|cdn.jsdelivr|flex-02" || true
-sudo nginx -T | grep -n "server_name flexpro02.ru" -A 5
+sudo nginx -T | grep -n "server_name .*flexpro02.ru" -A 25
+sudo grep -R "server_name .*flexpro02.ru" -n /etc/nginx/sites-enabled /etc/nginx/conf.d
 docker compose ps
 docker compose logs --tail=100 web
 ```
