@@ -18,8 +18,8 @@ Install temporary HTTP-only nginx config before issuing a certificate:
 
 ```bash
 sudo mkdir -p /var/www/certbot
-sudo cp deploy/nginx/flexpro02.ru.http-only.conf /etc/nginx/sites-available/flexpro02.ru.conf
-sudo ln -sf /etc/nginx/sites-available/flexpro02.ru.conf /etc/nginx/sites-enabled/flexpro02.ru.conf
+sudo cp deploy/nginx/flexpro02.ru.http-only.conf /etc/nginx/sites-available/flexpro02.ru
+sudo ln -sf /etc/nginx/sites-available/flexpro02.ru /etc/nginx/sites-enabled/flexpro02.ru
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -28,7 +28,8 @@ Issue the certificate after DNS points to the server:
 
 ```bash
 sudo certbot certonly --webroot -w /var/www/certbot -d flexpro02.ru -d www.flexpro02.ru
-sudo cp deploy/nginx/flexpro02.ru.conf /etc/nginx/sites-available/flexpro02.ru.conf
+sudo cp deploy/nginx/flexpro02.ru.conf /etc/nginx/sites-available/flexpro02.ru
+sudo ln -sf /etc/nginx/sites-available/flexpro02.ru /etc/nginx/sites-enabled/flexpro02.ru
 sudo nginx -t
 sudo systemctl reload nginx
 ```
